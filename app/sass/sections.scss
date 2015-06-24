@@ -1,0 +1,69 @@
+@import "compass";
+@import "compass/reset";
+
+body{
+//  height: 800px;
+  overflow: hidden;
+
+}
+
+.main-container {
+
+//  height: 4000px;
+
+}
+
+.main {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+//  height: 100%;
+}
+
+#seccion_01 {
+//  background-color: #555555;
+}
+
+#seccion_02 {
+//  background-color: chocolate;
+
+}
+
+#seccion_03 {
+//  background-color: darkkhaki;
+
+}
+
+#seccion_04 {
+//  background-color: gray;
+
+}
+
+#seccion_05 {
+//  background-color: lavenderblush;
+
+}
+
+#seccion_01,
+#seccion_02,
+#seccion_03,
+#seccion_04,
+#seccion_05,
+#seccion_06,
+#seccion_07{
+  font-size: 200%;
+  vertical-align: middle;
+  line-height: 600px;
+
+  width: 800px !important;
+  min-width: 800px !important;
+  height: 600px !important;
+  min-height: 600px !important;
+  div{
+//    position: absolute;
+//    height: 100%;
+//    width: 100%;
+//    top: 0;
+//    left: 0;
+  }
+}

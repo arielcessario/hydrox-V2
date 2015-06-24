@@ -1,14 +1,29 @@
-'use strict';
+(function(){
 
-angular.module('hydrox.main_view', ['ngRoute'])
+    'use strict';
+    var scripts = document.getElementsByTagName("script");
+    var currentScriptPath = scripts[scripts.length-1].src;
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/main_view', {
-    templateUrl: '/main_view.html',
-    controller: 'View1Ctrl'
-  });
-}])
+    angular.module('hydrox.main_view', ['ngRoute'])
 
-.controller('View1Ctrl', [function() {
+        .config(['$routeProvider', function($routeProvider) {
+            $routeProvider.when('/main_view', {
+                templateUrl: currentScriptPath.replace('js','html'),
+                controller: 'MainViewCtrl'
+            });
+        }])
 
-}]);
+        .controller('MainViewCtrl', MainViewCtrl);
+
+    MainViewCtrl.$inject = ['$window'];
+    function MainViewCtrl($window){
+        var vm = this;
+        //vm.wHeight = $window.pageYOffset;
+        //console.log(vm.wHeight);
+
+
+    }
+
+})();
+
+
