@@ -20,44 +20,52 @@ body{
 //  height: 100%;
 }
 
-#seccion_01 {
+#seccion-01 {
 //  background-color: #555555;
 }
 
-#seccion_02 {
+#seccion-02 {
 //  background-color: chocolate;
 
 }
 
-#seccion_03 {
+#seccion-03 {
 //  background-color: darkkhaki;
 
 }
 
-#seccion_04 {
+#seccion-04 {
 //  background-color: gray;
 
 }
 
-#seccion_05 {
+#seccion-05 {
 //  background-color: lavenderblush;
 
 }
 
-#seccion_01,
-#seccion_02,
-#seccion_03,
-#seccion_04,
-#seccion_05,
-#seccion_06,
-#seccion_07{
+#seccion-01,
+#seccion-02,
+#seccion-03,
+#seccion-04,
+#seccion-05,
+#seccion-06,
+#seccion-07,
+#seccion-08,
+#seccion-09,
+#seccion-10,
+#seccion-11,
+#seccion-12,
+#seccion-13
+{
   font-size: 200%;
   vertical-align: middle;
   line-height: 600px;
 
+  background-color: blue;
   width: 800px !important;
   min-width: 800px !important;
-  height: 600px !important;
+  height: 100% !important;
   min-height: 600px !important;
   div{
 //    position: absolute;
