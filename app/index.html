@@ -1,85 +1,46 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="hydrox" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="hydrox" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="hydrox" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="hydrox" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html lang="en" ng-app="hydrox" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="hydrox" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="hydrox" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="hydrox" class="no-js"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
-  <link rel="stylesheet" href="stylesheets/ac-parallax.css">
-  <link rel="stylesheet" href="stylesheets/sections.css">
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="stylesheets/sections.css">
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
+<body >
 
-  <!--<div class="main-container" ng-view></div>-->
+<!--<div class="main-container" ng-view></div>-->
+<div scroll id="main" ng-controller="MainController as mainCtrl">
+    <div id="seccion-01"></div>
+    <div id="seccion-02"></div>
+    <div id="seccion-03"></div>
+    <div id="seccion-04"></div>
+    <div id="seccion-05"></div>
+    <div id="seccion-06"></div>
+    <div id="seccion-07"></div>
+    <div id="seccion-08"></div>
+    <div id="seccion-09"></div>
+    <div id="seccion-10"></div>
+    <div id="seccion-11"></div>
+    <div id="seccion-12"></div>
+    <div id="seccion-13"></div>
+</div>
 
-  <div class="parallax main">
-      <div id="seccion_01" class="parallax__group">
-          <div class="parallax__layer parallax__layer--base">
-              <div class="title">Base Layer</div>
-          </div>
-      </div>
-      <div id="seccion_02" class="parallax__group">
-          <div class="parallax__layer parallax__layer--base">
-              <div class="title">Base Layer</div>
-          </div>
-          <div class="parallax__layer parallax__layer--back">
-              <div class="title">Background Layer</div>
-          </div>
-      </div>
-      <div id="seccion_03" class="parallax__group">
-          <div class="parallax__layer parallax__layer--fore">
-              <div class="title">Foreground Layer</div>
-          </div>
-          <div class="parallax__layer parallax__layer--base">
-              <div class="title">Base Layer</div>
-          </div>
-      </div>
-      <div id="seccion_04" class="parallax__group">
-          <div class="parallax__layer parallax__layer--base">
-              <div class="title">Base Layer</div>
-          </div>
-          <div class="parallax__layer parallax__layer--back">
-              <div class="title">Background Layer</div>
-          </div>
-          <div class="parallax__layer parallax__layer--deep">
-              <div class="title">Deep Background Layer</div>
-          </div>
-      </div>
-      <div id="seccion_05" class="parallax__group">
-          <div class="parallax__layer parallax__layer--fore">
-              <div class="title">Foreground Layer</div>
-          </div>
-          <div class="parallax__layer parallax__layer--base">
-              <div class="title">Base Layer</div>
-          </div>
-      </div>
-      <div id="seccion_06" class="parallax__group">
-          <div class="parallax__layer parallax__layer--back">
-              <div class="title">Background Layer</div>
-          </div>
-          <div class="parallax__layer parallax__layer--base">
-              <div class="title">Base Layer</div>
-          </div>
-      </div>
-      <div id="seccion_07" class="parallax__group">
-          <div class="parallax__layer parallax__layer--base">
-              <div class="title">Base Layer</div>
-          </div>
-      </div>
-  </div>
-
-
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
-  <script src="main_view/main_view.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="main_view/main_view.js"></script>
 </body>
 </html>
