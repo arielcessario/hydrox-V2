@@ -1,0 +1,270 @@
+@import "compass";
+@import "compass/reset";
+
+body {
+  //  height: 800px;
+  //  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #555555;
+
+}
+
+.main-container {
+
+  //  height: 4000px;
+
+}
+
+#main {
+  width: 100vw;
+  min-width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  position: fixed;
+  overflow: hidden;
+  //background-color: green;
+  //-webkit-transition: all 0.1s;
+  //-moz-transition: all 0.1s;
+  //-ms-transition: all 0.1s;
+  //-o-transition: all 0.1s;
+  //transition: all 0.1s;
+}
+
+#seccion-01 {
+  //background-color: #555555;
+}
+
+#seccion-02 {
+  //background-color: chocolate;
+  pointer-events: none;
+  div {
+
+  }
+  #seccion-02-fondo {
+    margin-left: -200px;
+    //background-color: blue;
+    position: relative;
+    background: rgba(0,0,0,0) url(../img/burbujas.png) 50% 50% no-repeat;
+
+    height: 100%;
+    width: 100%;
+  }
+  #seccion-02-medio {
+    //margin-left: -150px;
+    //position: relative;
+    //height: 100%;
+    //width: 100%;
+    //margin-top: -35%;
+    //background-color: green;
+    //z-index: 100;
+
+  }
+  #seccion-02-frente {
+    margin-left: 20%;
+    position: relative;
+    height: 100%;
+    width: 20%;
+    margin-top: -35%;
+    //background-color: yellow;
+
+  }
+}
+
+.s-hidden {
+  opacity: 1;
+  position: fixed;
+  right: -4000px;
+  color: white;
+}
+
+.titulo {
+  opacity: 1;
+  right: calc(30% - 135px);
+  top: -200px;
+  height: 50px;
+  width: 270px;
+}
+
+.sub-titulo {
+  opacity: 1;
+  right: calc(30% - 135px);
+  top: 0px;
+  height: 50px;
+  width: 270px;
+}
+
+.detalle {
+  opacity: 1;
+  right: calc(30% - 135px);
+  top: 40px;
+  width: 270px;
+}
+
+.imagen-main {
+  opacity: 1;
+  right: calc(65% - 263px);
+  top: 35%;
+
+}
+
+.thumbs {
+  opacity: 1;
+  right: calc(56% - 263px);
+  top: 37%;
+  pointer-events: all !important;
+}
+
+#seccion-02-imagen-main.ng-enter {
+  -webkit-animation: titulo-enter 0.4s !important;
+  -moz-animation: titulo-enter 0.4s !important;
+  -ms-animation: titulo-enter 0.4s !important;
+  -o-animation: titulo-enter 0.4s !important;
+  animation: titulo-enter 0.4s !important;
+
+}
+
+#seccion-02-titulo.ng-enter {
+  -webkit-animation: titulo-enter 0.4s !important;
+  -moz-animation: titulo-enter 0.4s !important;
+  -ms-animation: titulo-enter 0.4s !important;
+  -o-animation: titulo-enter 0.4s !important;
+  animation: titulo-enter 0.4s !important;
+
+}
+
+#seccion-02-sub-titulo.ng-enter {
+  -moz-animation: titulo-enter 0.5s ease-in; /* Firefox */
+  -webkit-animation: titulo-enter 0.5s ease-in; /* Safari and Chrome */
+  -o-animation: titulo-enter 0.5s ease-in; /* Opera */
+  animation: titulo-enter 0.5s ease-in;
+
+}
+
+#seccion-02-detalle.ng-enter {
+  -webkit-animation: titulo-enter 0.6s !important;
+  -moz-animation: titulo-enter 0.6s !important;
+  -ms-animation: titulo-enter 0.6s !important;
+  -o-animation: titulo-enter 0.6s !important;
+  animation: titulo-enter 0.6s !important;
+}
+
+#seccion-02-thumbs.ng-enter {
+  -webkit-animation: titulo-enter 0.7s !important;
+  -moz-animation: titulo-enter 0.7s !important;
+  -ms-animation: titulo-enter 0.7s !important;
+  -o-animation: titulo-enter 0.7s !important;
+  animation: titulo-enter 0.7s !important;
+
+}
+
+@-webkit-keyframes titulo-enter {
+  0% {
+
+    right: -4000px;
+
+    opacity: 1;
+  }
+
+  100% {
+
+    //right: 30%;
+    opacity: 1;
+  }
+}
+
+#seccion-02-titulo.ng-leave,
+#seccion-02-sub-titulo.ng-leave,
+#seccion-02-imagen-main.ng-leave {
+  -webkit-animation: titulo-leave 0.4s !important;
+  -moz-animation: titulo-leave 0.4s !important;
+  -ms-animation: titulo-leave 0.4s !important;
+  -o-animation: titulo-leave 0.4s !important;
+  animation: titulo-leave 0.4s !important;
+}
+
+@-webkit-keyframes titulo-leave {
+  0% {
+    //right: 50%;
+
+    opacity: 1;
+    position: fixed;
+
+  }
+
+  100% {
+    right: 4000px;
+
+    opacity: 1;
+    position: fixed;
+
+  }
+}
+
+#seccion-02.ng-enter {
+  background-color: violet;
+  -webkit-animation: view-enter 0.8s !important;
+  -moz-animation: view-enter 0.8s !important;
+  -ms-animation: view-enter 0.8s !important;
+  -o-animation: view-enter 0.8s !important;
+  animation: view-enter 0.8s !important;
+}
+
+@-webkit-keyframes view-enter {
+  from {
+
+    opacity: 0;
+  }
+
+  to {
+
+    opacity: 1;
+  }
+}
+
+#seccion-03 {
+  //background-color: darkkhaki;
+
+}
+
+#seccion-04 {
+  //background-color: gray;
+
+}
+
+#seccion-05 {
+  //background-color: lavenderblush;
+
+}
+
+#seccion-01,
+#seccion-02,
+#seccion-03,
+#seccion-04,
+#seccion-05,
+#seccion-06,
+#seccion-07,
+#seccion-08,
+#seccion-09,
+#seccion-10,
+#seccion-11,
+#seccion-12,
+#seccion-13 {
+  font-size: 200%;
+  vertical-align: middle;
+  line-height: 600px;
+
+  width: 100%;
+  //19.2 por
+  min-width: 1920px;
+  height: 100%;
+  div {
+    //    position: absolute;
+    //    height: 100%;
+    //    width: 100%;
+    //    top: 0;
+    //    left: 0;
+  }
+}

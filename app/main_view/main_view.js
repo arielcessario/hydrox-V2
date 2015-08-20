@@ -21,6 +21,9 @@
         //vm.wHeight = $window.pageYOffset;
         //console.log(vm.wHeight);
 
+        vm.sms = function(){
+            alert('h');
+        }
 
     }
 

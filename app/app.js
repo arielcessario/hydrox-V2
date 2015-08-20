@@ -1,19 +1,91 @@
 (function () {
     'use strict';
 
+
 // Declare app level module which depends on views, and components
     angular.module('hydrox', [
         'ngRoute',
+        'ngAnimate',
         'hydrox.main_view'
     ])
         .config(['$routeProvider', function ($routeProvider) {
             $routeProvider.otherwise({redirectTo: '/main_view'});
         }])
-        .controller('MainController', MainController)
-        .directive("scroll", Scroll);
+        .controller('MainController', MainController);
 
 
-    function MainController() {
+    MainController.$inject = ['$scope'];
+    function MainController($scope) {
+
+        var s = skrollr.init();
+        var vm = this;
+
+        vm.seccion = 'seccion-01';
+        vm.img = '';
+        vm.xpos = 0;
+
+
+
+        vm.selectImage = function (img) {
+            vm.img = img;
+        };
+
+        document.addEventListener('touchstart', function(e) {
+            //e.preventDefault();
+
+            var touches = e.changedTouches;
+            for (var i = 0; i < touches.length; i++) {
+                console.log(touches[i].pageX);
+            }
+            $scope.$apply();
+            //e.stopPropagation();
+        });
+
+        document.addEventListener('touchmove', function(e) {
+            //e.preventDefault();
+            $scope.$apply();
+            //e.stopPropagation();
+        });
+
+        document.addEventListener('touchend', function(e) {
+            //e.preventDefault();
+            window.pageYOffset = window.pageYOffset +
+            $scope.$apply();
+            //e.stopPropagation();
+        });
+
+        document.addEventListener('scroll', function () {
+
+            //animate();
+            //requestAnimationFrame(animate);
+            //console.log(window.pageYOffset);
+
+
+            vm.xpos = window.pageYOffset;
+
+
+
+            if((window.pageYOffset > 5000 && window.pageYOffset < 9900)  && vm.seccion != 'seccion-02'){
+                //console.log('entra');
+                vm.seccion = 'seccion-02';
+                vm.img = 'zapa_neoprene_01.gif';
+
+            }
+
+            if(parseInt(window.pageYOffset) > 10000 && vm.seccion != 'seccion-02'){
+                //console.log('entra');
+                vm.seccion = 'seccion-03';
+                vm.img = 'zapa_neoprene_01.gif';
+                //$scope.$apply();
+            }
+            //showPosition();
+            //
+            //function showPosition(){
+            //    console.log('top: ' + window.pageYOffset);
+            //    console.log('bottom: ' + (window.pageYOffset + window.innerHeight));
+            //}
+            $scope.$apply();
+        }, false);
 
 
     }
@@ -31,75 +103,7 @@
     })();
 
 
-    //Function Scroll - Detecta el movimiento de scroll y actua en consecuencia
-    function Scroll($window) {
-        requestAnimFrame(Scroll);
-        return ScrollAnimate();
-    }
 
-    function ScrollAnimate() {
-        return {
-
-            restrict: 'A',
-            link: function (scope, element, attrs) {
-                var startX = 0, startY = 0, x = 0, y = 0;
-                element.on('scroll', function (event) {
-                    console.log(event);
-                    //console.log(eve1nt.target.scrollLeft);
-                    //startX = event.pageX - x;
-                    //startY = event.pageY - y;
-                    //
-                    //console.log(event);
-                    scope.$apply();
-
-
-                });
-
-                element.on('mousewheel', function (event) {
-
-                    //console.log(event);
-                    //console.log(event.target.scrollLeft);
-
-                    element[0].scrollLeft = element[0].scrollLeft + event.deltaY;
-                    scope.$apply();
-                });
-
-
-                element.on('ondrag', function (event) {
-
-                    console.log(event);
-                    //console.log(event.target.scrollLeft);
-
-                    //console.log(element[0].scrollLeft);
-                    //element[0].scrollLeft = element[0].scrollLeft + event.deltaY;
-                    //scope.$apply();
-                });
-                //element.on('mousedown', function(event) {
-                //    // Prevent default dragging of selected content
-                //    event.preventDefault();
-                //    console.log(event);
-                //    //startX = event.pageX - x;
-                //    //startY = event.pageY - y;
-                //    //$document.on('mousemove', mousemove);
-                //    //$document.on('mouseup', mouseup);
-                //});
-                //
-                //function mousemove(event) {
-                //    y = event.pageY - startY;
-                //    x = event.pageX - startX;
-                //    element.css({
-                //        top: y + 'px',
-                //        left:  x + 'px'
-                //    });
-                //}
-                //
-                //function mouseup() {
-                //    $document.off('mousemove', mousemove);
-                //    $document.off('mouseup', mouseup);
-                //}
-            }
-        }
-    }
 
 })();
 
