@@ -38,7 +38,7 @@ div {
   //transition: all 0.1s;
 }
 
-.fondo{
+.fondo {
   height: 100%;
   width: 200%;
   background: url(../img/burbujas.png) 50% 50% repeat-x;
@@ -72,46 +72,85 @@ div {
   max-height: 80%;
   height: 80%;
   //background-color: blue;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-container,
+.right-container,
+.upper-container,
+.bottom-container {
+  position: static;
+}
+
+.left-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-container {
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.upper-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+.bottom-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .s-hidden {
 }
 
 .titulo {
-  position: absolute;
-  top: 10%;
-  left: 70%;
+  //position: absolute;
+  //top: 10%;
+  //left: 70%;
   font-size: 42px;
   font-weight: bold;
+  position: static;
 }
 
 .sub-titulo {
 
-  position: absolute;
-  top: 30%;
-  left: 70%;
+  //position: absolute;
+  //top: 30%;
+  //left: 70%;
   font-size: 33px;
+  position: static;
 
 }
 
 .detalle {
-  position: absolute;
-  top: 45%;
-  left: 70%;
+  //position: absolute;
+  //top: 45%;
+  //left: 70%;
+  margin-top: 30px;
+  min-height: 150px;
+  position: static;
 }
 
 .imagen-main {
-  position: absolute;
-  top: 5%;
-  left: 0;
-
+  //position: absolute;
+  //top: 5%;
+  //left: 0;
+  position: static;
 
 }
 
 .thumbs {
-  position: absolute;
-  top: 75%;
-  left: 70%;
+  //position: absolute;
+  //top: 75%;
+  //left: 70%;
   pointer-events: all;
 
 }
@@ -167,7 +206,7 @@ div {
 
   }
 
-  40%{
+  40% {
     opacity: 0;
   }
 
@@ -259,7 +298,6 @@ div {
   text-shadow: 2px 2px 4px black;
 
 }
-
 
 @font-face {
   font-family: 'Bebas Regular';

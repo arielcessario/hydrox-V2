@@ -31,7 +31,8 @@
              data-1200="transform:translate3d(-100%,0%,0);"></div>
         <div id="seccion-01-container">
             <!--<div style="pointer-events: all;" ng-click="mainCtrl.goToPage();">ir a tres</div>-->
-            <a href="#seccion-02" data-menu-top="500" ng-click="mainCtrl.goToPage();" style="pointer-events: all;" >ir a tres</a>
+            <a href="#seccion-02" data-menu-top="500" ng-click="mainCtrl.goToPage();" style="pointer-events: all;">ir a
+                tres</a>
         </div>
     </div>
 
@@ -44,28 +45,42 @@
              data-1000="transform:translate3d(-50%,0%,0);opacity:1"
              data-2000="transform:translate3d(-80%,0%,0); opacity:0"></div>
         <div id="seccion-02-container">
-            <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-titulo" class="titulo">
-                {{mainCtrl.xpos}}HYDROX
+
+            <div class="upper-container">
+                <img src="" ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-titulo" class="titulo"/>
+
             </div>
-            <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-sub-titulo" class="sub-titulo">
-                ZAPATILLA DE
-                NEOPRENE DE 3MM
-            </div>
-            <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-detalle" class="detalle">
-                Suela de caucho TR Antideslizante <br>
-                Gráfica de Refuerzo <br>
-                Ribeteada con Lycra <br>
-                Talles: 32, 34, XS, S, M, L, XL, XXL
-            </div>
-            <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-imagen-main" class="imagen-main">
-                <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
-            </div>
-            <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-thumbs" class="thumbs">
-                <img ng-click="mainCtrl.selectImage('zapa_neoprene_01.gif')" src="img/zapa_neoprene_01.gif" alt=""
-                     width="75">
-                <img ng-click="mainCtrl.selectImage('Zapa_neoprene_02.gif')" src="img/Zapa_neoprene_02.gif" alt=""
-                     width="75">
-                <img src="" alt="">
+            <div class="bottom-container">
+                <div class="left-container">
+                    <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-imagen-main" class="imagen-main">
+                        <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
+                    </div>
+                </div>
+
+
+                <div class="right-container">
+                    <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-sub-titulo" class="sub-titulo">
+                        ZAPATILLA DE
+                        NEOPRENE DE 3MM
+                    </div>
+                    <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-detalle" class="detalle">
+                        Suela de caucho TR Antideslizante <br>
+                        Gráfica de Refuerzo <br>
+                        Ribeteada con Lycra <br>
+                        Talles: 32, 34, XS, S, M, L, XL, XXL
+                    </div>
+
+
+                    <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-thumbs" class="thumbs">
+                        <img ng-click="mainCtrl.selectImage('zapa_neoprene_01.gif')" src="img/zapa_neoprene_01.gif"
+                             alt=""
+                             width="75">
+                        <img ng-click="mainCtrl.selectImage('Zapa_neoprene_02.gif')" src="img/Zapa_neoprene_02.gif"
+                             alt=""
+                             width="75">
+                        <img src="" alt="">
+                    </div>
+                </div>
             </div>
         </div>
 
