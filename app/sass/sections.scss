@@ -45,16 +45,16 @@ div {
 }
 
 #seccion-01 {
-  @include background-image(linear-gradient(#e3312d, #ffef26));
+  @include background-image(linear-gradient(left, #e3312d, #ffef26));
 
 }
 
 #seccion-03 {
-  @include background-image(linear-gradient(#e3312d, #ffefff));
+  @include background-image(linear-gradient(left, #e3312d, #ffefff));
 }
 
 #seccion-02 {
-  @include background-image(linear-gradient(#ffef26, #e3312d));
+  @include background-image(linear-gradient(left, #ffef26, #e3312d));
 
   display: flex;
   justify-content: center;
@@ -159,12 +159,19 @@ div {
 
 @-webkit-keyframes titulo-enter {
   0% {
+
+    opacity: 0;
     transform: translate(1000px, 0px);
 
   }
 
+  40%{
+    opacity: 0;
+  }
+
   100% {
 
+    opacity: 1;
     transform: translate(0px, 0px);
   }
 }
@@ -182,13 +189,15 @@ div {
 @-webkit-keyframes titulo-leave {
   0% {
 
+    opacity: 1;
     transform: translate(0px, 0px);
 
   }
 
   100% {
 
-    transform: translate(1000px, 0px);
+    opacity: 0;
+    transform: translate(-1000px, 0px);
 
   }
 }
