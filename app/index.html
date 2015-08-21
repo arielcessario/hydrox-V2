@@ -22,25 +22,31 @@
 <body scroll id="">
 
 <!--<div class="main-container" ng-view></div>-->
-<div id="skrollr-body" ng-controller="MainController as mainCtrl">
-    {{mainCtrl.xpos}}
+<div id="main" ng-controller="MainController as mainCtrl">
+    <!--{{mainCtrl.ypos}}-->
     <div id="seccion-01" data-0="transform:translate3d(0%,0%,0); "
-         data-5000="transform:translate3d(-100%,0%,0);">
+         data-1000="transform:translate3d(-100%,0%,0);">
 
         <div class="fondo" data-0="transform:translate3d(-40%,0%,0); "
-             data-6000="transform:translate3d(-100%,0%,0);"></div>
+             data-1200="transform:translate3d(-100%,0%,0);"></div>
+        <div id="seccion-01-container">
+            <!--<div style="pointer-events: all;" ng-click="mainCtrl.goToPage();">ir a tres</div>-->
+            <a href="#seccion-02" data-menu-top="500" ng-click="mainCtrl.goToPage();" style="pointer-events: all;" >ir a tres</a>
+        </div>
     </div>
 
 
     <div id="seccion-02" data-0="transform:translate3d(100%,0%,0); "
-         data-5000="transform:translate3d(0%,0%,0);"
-         data-10000="transform:translate3d(-100%,0%,0);">
+         data-1000="transform:translate3d(0%,0%,0);"
+         data-2000="transform:translate3d(-100%,0%,0);">
         <div class="fondo"
-             data-500="transform:translate3d(0%,0%,0); opacity:1"
-             data-4000="transform:translate3d(-20%,0%,0);opacity:1"
-             data-11000="transform:translate3d(-80%,0%,0); opacity:0"></div>
+             data-100="transform:translate3d(0%,0%,0); opacity:1"
+             data-1000="transform:translate3d(-20%,0%,0);opacity:1"
+             data-2000="transform:translate3d(-80%,0%,0); opacity:0"></div>
         <div id="seccion-02-container">
-            <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-titulo" class="titulo">{{mainCtrl.xpos}}HYDROX</div>
+            <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-titulo" class="titulo">
+                {{mainCtrl.xpos}}HYDROX
+            </div>
             <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-sub-titulo" class="sub-titulo">
                 ZAPATILLA DE
                 NEOPRENE DE 3MM
@@ -67,10 +73,10 @@
     </div>
 
 
-    <div id="seccion-03" data-5000="transform:translate3d(100%,0%,0);"
-         data-10000="transform:translate3d(0%,0%,0);">
-        <div class="fondo" data-9000="transform:translate3d(-50%,0%,0); opacity:0 "
-             data-16000="transform:translate3d(-100%,0%,0); opacity:1"></div>
+    <div id="seccion-03" data-1000="transform:translate3d(100%,0%,0);"
+         data-2000="transform:translate3d(0%,0%,0);">
+        <div class="fondo" data-1800="transform:translate3d(-50%,0%,0); opacity:0 "
+             data-3000="transform:translate3d(-100%,0%,0); opacity:1"></div>
     </div>
     <div id="seccion-04"></div>
     <div id="seccion-05"></div>
@@ -88,6 +94,7 @@
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+<script src="lib/skrollr-menu.min.js"></script>
 <script src="app.js"></script>
 <script src="main_view/main_view.js"></script>
 

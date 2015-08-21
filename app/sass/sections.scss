@@ -24,7 +24,7 @@ div {
   pointer-events: none;
 }
 
-#skrollr-body {
+#main {
   width: 100vw;
   min-width: 100vw;
   height: 100vh;
@@ -63,13 +63,14 @@ div {
 
 }
 
+#seccion-01-container,
 #seccion-02-container {
   position: relative;
   max-width: 800px;
   width: 80%;
   max-height: 80%;
   height: 80%;
-  background-color: blue;
+  //background-color: blue;
 }
 
 .s-hidden {
@@ -158,7 +159,6 @@ div {
 
 @-webkit-keyframes titulo-enter {
   0% {
-
     transform: translate(1000px, 0px);
 
   }
