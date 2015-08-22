@@ -31,7 +31,7 @@
             scale: 2,
 
             //How long the animation should take in ms.
-            duration: function(currentTop, targetTop) {
+            duration: function (currentTop, targetTop) {
                 //By default, the duration is hardcoded at 500ms.
                 return 500;
 
@@ -54,20 +54,13 @@
             complexLinks: false,
 
             //This event is triggered right before we jump/animate to a new hash.
-            change: function(newHash, newTopPosition) {
+            change: function (newHash, newTopPosition) {
                 //Do stuff
             },
 
             //Add hash link (e.g. `#foo`) to URL or not.
             updateUrl: false //defaults to `true`.
         });
-
-
-
-
-
-
-
 
 
         var vm = this;
@@ -115,8 +108,7 @@
         var el13 = angular.element(document.querySelector('#seccion-13'));
 
 
-
-        function goToPage(){
+        function goToPage() {
 
             vm.seccion = 'seccion-02';
             vm.img = 'zapa_neoprene_01.gif';
@@ -151,40 +143,102 @@
         function scroll(y) {
 
 
-
-
-            var position01 = el01[0].style.transform.replace('translate3d(','').replace(', 0%, 0px)','');
-            var position02 = el02[0].style.transform.replace('translate3d(','').replace(', 0%, 0px)','');
-            var position03 = el03[0].style.transform.replace('translate3d(','').replace(', 0%, 0px)','');
-            var position04 = el04[0].style.transform.replace('translate3d(','').replace(', 0%, 0px)','');
-            var position05 = el05[0].style.transform.replace('translate3d(','').replace(', 0%, 0px)','');
-            var position06 = el06[0].style.transform.replace('translate3d(','').replace(', 0%, 0px)','');
-            var position07 = el07[0].style.transform.replace('translate3d(','').replace(', 0%, 0px)','');
-            var position08 = el08[0].style.transform.replace('translate3d(','').replace(', 0%, 0px)','');
-            var position09 = el09[0].style.transform.replace('translate3d(','').replace(', 0%, 0px)','');
-            var position10 = el10[0].style.transform.replace('translate3d(','').replace(', 0%, 0px)','');
-            var position11 = el11[0].style.transform.replace('translate3d(','').replace(', 0%, 0px)','');
-            var position12 = el12[0].style.transform.replace('translate3d(','').replace(', 0%, 0px)','');
-            var position13 = el13[0].style.transform.replace('translate3d(','').replace(', 0%, 0px)','');
+            var position01 = el01[0].style.transform.replace('translate3d(', '').replace(', 0%, 0px)', '');
+            var position02 = el02[0].style.transform.replace('translate3d(', '').replace(', 0%, 0px)', '');
+            var position03 = el03[0].style.transform.replace('translate3d(', '').replace(', 0%, 0px)', '');
+            var position04 = el04[0].style.transform.replace('translate3d(', '').replace(', 0%, 0px)', '');
+            var position05 = el05[0].style.transform.replace('translate3d(', '').replace(', 0%, 0px)', '');
+            var position06 = el06[0].style.transform.replace('translate3d(', '').replace(', 0%, 0px)', '');
+            var position07 = el07[0].style.transform.replace('translate3d(', '').replace(', 0%, 0px)', '');
+            var position08 = el08[0].style.transform.replace('translate3d(', '').replace(', 0%, 0px)', '');
+            var position09 = el09[0].style.transform.replace('translate3d(', '').replace(', 0%, 0px)', '');
+            var position10 = el10[0].style.transform.replace('translate3d(', '').replace(', 0%, 0px)', '');
+            var position11 = el11[0].style.transform.replace('translate3d(', '').replace(', 0%, 0px)', '');
+            var position12 = el12[0].style.transform.replace('translate3d(', '').replace(', 0%, 0px)', '');
+            var position13 = el13[0].style.transform.replace('translate3d(', '').replace(', 0%, 0px)', '');
 
             vm.ypos = position02;
 
-            if(parseFloat(position01) < 20 && parseFloat(position01) > -99){
-                console.log('true');
-            }else{
-                console.log('false');
+            if (parseFloat(position01) < 20 && parseFloat(position01) > -99) {
+                //console.log('true');
+            } else {
+                //console.log('false');
 
             }
 
 
-            if(parseFloat(position02) < 20 && parseFloat(position02) > -99){
+            if (parseFloat(position02) < 20 && parseFloat(position02) > -99) {
                 console.log(position02);
                 vm.seccion = 'seccion-02';
                 vm.img = 'zapa_neoprene_01.gif';
-            }else{
-                console.log('false');
-
             }
+
+            if (parseFloat(position03) < 20 && parseFloat(position03) > -99) {
+                console.log(position03);
+                vm.seccion = 'seccion-03';
+                vm.img = 'zapa_neoprene_01.gif';
+            }
+            
+            if (parseFloat(position04) < 20 && parseFloat(position04) > -99) {
+                console.log(position04);
+                vm.seccion = 'seccion-04';
+                vm.img = 'zapa_neoprene_01.gif';
+            }
+            
+            if (parseFloat(position05) < 20 && parseFloat(position05) > -99) {
+                console.log(position05);
+                vm.seccion = 'seccion-05';
+                vm.img = 'zapa_neoprene_01.gif';
+            }
+            
+            if (parseFloat(position06) < 20 && parseFloat(position06) > -99) {
+                console.log(position06);
+                vm.seccion = 'seccion-06';
+                vm.img = 'zapa_neoprene_01.gif';
+            }
+            
+            if (parseFloat(position07) < 20 && parseFloat(position07) > -99) {
+                console.log(position07);
+                vm.seccion = 'seccion-07';
+                vm.img = 'zapa_neoprene_01.gif';
+            }
+            
+            if (parseFloat(position08) < 20 && parseFloat(position08) > -99) {
+                console.log(position08);
+                vm.seccion = 'seccion-08';
+                vm.img = 'zapa_neoprene_01.gif';
+            }
+            
+            if (parseFloat(position09) < 20 && parseFloat(position09) > -99) {
+                console.log(position09);
+                vm.seccion = 'seccion-09';
+                vm.img = 'zapa_neoprene_01.gif';
+            }
+            
+            if (parseFloat(position10) < 20 && parseFloat(position10) > -99) {
+                console.log(position10);
+                vm.seccion = 'seccion-10';
+                vm.img = 'zapa_neoprene_01.gif';
+            }
+            
+            if (parseFloat(position11) < 20 && parseFloat(position11) > -99) {
+                console.log(position11);
+                vm.seccion = 'seccion-11';
+                vm.img = 'zapa_neoprene_01.gif';
+            }
+            
+            if (parseFloat(position12) < 20 && parseFloat(position12) > -99) {
+                console.log(position12);
+                vm.seccion = 'seccion-12';
+                vm.img = 'zapa_neoprene_01.gif';
+            }
+            
+            if (parseFloat(position13) < 20 && parseFloat(position13) > -99) {
+                console.log(position13);
+                vm.seccion = 'seccion-13';
+                vm.img = 'zapa_neoprene_01.gif';
+            }
+            
             //console.log(position01);
             //console.log(position02);
 
@@ -297,12 +351,78 @@
 
             }
 
-            if (parseInt(window.pageYOffset) > 2000 && vm.seccion != 'seccion-03') {
+            if ((window.pageYOffset > 2000 && window.pageYOffset < 3200) && vm.seccion != 'seccion-03') {
                 //console.log('entra');
                 vm.seccion = 'seccion-03';
                 vm.img = 'zapa_neoprene_01.gif';
                 //$scope.$apply();
             }
+
+
+            if ((window.pageYOffset > 3000 && window.pageYOffset < 4200) && vm.seccion != 'seccion-04') {
+                //console.log('entra');
+                vm.seccion = 'seccion-04';
+                vm.img = 'zapa_neoprene_01.gif';
+                //$scope.$apply();
+            }
+
+
+            if ((window.pageYOffset > 4000 && window.pageYOffset < 5200) && vm.seccion != 'seccion-05') {
+                //console.log('entra');
+                vm.seccion = 'seccion-05';
+                vm.img = 'zapa_neoprene_01.gif';
+                //$scope.$apply();
+            }
+            if ((window.pageYOffset > 5000 && window.pageYOffset < 6200) && vm.seccion != 'seccion-06') {
+                //console.log('entra');
+                vm.seccion = 'seccion-06';
+                vm.img = 'zapa_neoprene_01.gif';
+                //$scope.$apply();
+            }
+            if ((window.pageYOffset > 6000 && window.pageYOffset < 7200) && vm.seccion != 'seccion-07') {
+                //console.log('entra');
+                vm.seccion = 'seccion-07';
+                vm.img = 'zapa_neoprene_01.gif';
+                //$scope.$apply();
+            }
+            if ((window.pageYOffset > 7000 && window.pageYOffset < 8200) && vm.seccion != 'seccion-08') {
+                //console.log('entra');
+                vm.seccion = 'seccion-08';
+                vm.img = 'zapa_neoprene_01.gif';
+                //$scope.$apply();
+            }
+            if ((window.pageYOffset > 8000 && window.pageYOffset < 9200) && vm.seccion != 'seccion-09') {
+                //console.log('entra');
+                vm.seccion = 'seccion-09';
+                vm.img = 'zapa_neoprene_01.gif';
+                //$scope.$apply();
+            }
+            if ((window.pageYOffset > 9000 && window.pageYOffset < 10200) && vm.seccion != 'seccion-10') {
+                //console.log('entra');
+                vm.seccion = 'seccion-10';
+                vm.img = 'zapa_neoprene_' +
+                    '01.gif';
+                //$scope.$apply();
+            }
+            if ((window.pageYOffset > 10000 && window.pageYOffset < 11200) && vm.seccion != 'seccion-11') {
+                //console.log('entra');
+                vm.seccion = 'seccion-11';
+                vm.img = 'zapa_neoprene_01.gif';
+                //$scope.$apply();
+            }
+            if ((window.pageYOffset > 11000 && window.pageYOffset < 12200) && vm.seccion != 'seccion-12') {
+                //console.log('entra');
+                vm.seccion = 'seccion-12';
+                vm.img = 'zapa_neoprene_01.gif';
+                //$scope.$apply();
+            }
+            if ((window.pageYOffset > 12000 && window.pageYOffset < 13200) && vm.seccion != 'seccion-13') {
+                //console.log('entra');
+                vm.seccion = 'seccion-13';
+                vm.img = 'zapa_neoprene_01.gif';
+                //$scope.$apply();
+            }
+
             //showPosition();
             //
             //function showPosition(){

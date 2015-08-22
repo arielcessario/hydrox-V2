@@ -90,6 +90,7 @@ div {
 .upper-container,
 .bottom-container {
   position: static;
+  z-index: 100;
 }
 
 .left-container {
