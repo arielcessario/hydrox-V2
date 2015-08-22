@@ -85,6 +85,13 @@ div {
   justify-content: flex-start;
 }
 
+
+#seccion-02-container{
+  @media (max-width: 700px) {
+    display: inline;
+  }
+}
+
 .left-container,
 .right-container,
 .upper-container,
@@ -100,7 +107,12 @@ div {
 }
 
 .right-container {
-
+  @media (max-width: 700px) {
+    position: absolute;
+    width: 360px;
+    max-width: 360px;
+    left: calc(50% - 180px);
+  }
   display: flex;
   justify-content: space-around;
   align-items: center;
