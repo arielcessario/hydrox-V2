@@ -45,6 +45,13 @@ div {
   overflow: hidden;
 }
 
+.fondo2 {
+  height: 100%;
+  width: 200%;
+  background: url(../img/burbujas2.png) 50% 50% repeat-x;
+  overflow: hidden;
+}
+
 #seccion-01 {
   @include background-image(linear-gradient(left, #e3312d, #ffef26));
 
