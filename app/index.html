@@ -47,7 +47,7 @@
 
 
         <div class="upper-container">
-                <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-titulo" class="titulo"/>
+            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-titulo" class="titulo"/>
 
             </div>
             <div class="bottom-container">
@@ -91,18 +91,55 @@
     <div id="seccion-03" data-1000="transform:translate3d(100%,0%,0); "
          data-2000="transform:translate3d(0%,0%,0);"
          data-3000="transform:translate3d(-100%,0%,0);">
+        <div class="upper-container">
+            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-03'" id="seccion-02-titulo" class="titulo"/>
+
+        </div>
+        <div class="bottom-container">
+            <div class="left-container">
+                <div ng-if="mainCtrl.seccion == 'seccion-03'" id="seccion-02-imagen-main" class="imagen-main">
+                    <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
+                </div>
+            </div>
+
+
+            <div class="right-container">
+                <div ng-if="mainCtrl.seccion == 'seccion-03'" id="seccion-02-sub-titulo" class="sub-titulo">
+                    ZAPATILLA DE
+                    NEOPRENE DE 3MM
+                </div>
+                <div ng-if="mainCtrl.seccion == 'seccion-03'" id="seccion-02-detalle" class="detalle">
+                    Suela de caucho TR Antideslizante <br>
+                    Gráfica de Refuerzo <br>
+                    Ribeteada con Lycra <br>
+                    Talles: 32, 34, XS, S, M, L, XL, XXL
+                </div>
+
+
+                <div ng-if="mainCtrl.seccion == 'seccion-03'" id="seccion-02-thumbs" class="thumbs">
+                    <img ng-click="mainCtrl.selectImage('zapa_neoprene_01.gif')" src="img/zapa_neoprene_01.gif"
+                         alt=""
+                         width="75">
+                    <img ng-click="mainCtrl.selectImage('Zapa_neoprene_02.gif')" src="img/Zapa_neoprene_02.gif"
+                         alt=""
+                         width="75">
+                    <img src="" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     </div>
 
 
 
-3
+
 
 <div id="seccion-04" data-2000="transform:translate3d(100%,0%,0); "
          data-3000="transform:translate3d(0%,0%,0);"
          data-4000="transform:translate3d(-100%,0%,0);"></div>
-              <div id="seccion-05"></div>
+    <div id="seccion-05"></div>
     <div id="seccion-06"></div>
     <div id="seccion-07"></div>
     <div id="seccion-08"></div>
