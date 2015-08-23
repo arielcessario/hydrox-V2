@@ -338,7 +338,7 @@
 
             //animate();
             //requestAnimationFrame(animate);
-            //console.log(window.pageYOffset);
+            console.log(window.pageYOffset);
 
 
             vm.ypos = window.pageYOffset;
@@ -352,7 +352,7 @@
             }
 
             if ((window.pageYOffset > 2000 && window.pageYOffset < 3200) && vm.seccion != 'seccion-03') {
-                //console.log('entra');
+                console.log('entra');
                 vm.seccion = 'seccion-03';
                 vm.img = 'zapa_neoprene_01.gif';
                 //$scope.$apply();
