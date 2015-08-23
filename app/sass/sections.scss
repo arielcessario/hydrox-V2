@@ -59,6 +59,10 @@ div {
 
 #seccion-03 {
   @include background-image(linear-gradient(left, #e3312d, #ffefff));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #seccion-02 {
@@ -72,13 +76,13 @@ div {
 }
 
 #seccion-01-container,
+#seccion-03-container,
 #seccion-02-container {
   position: relative;
   max-width: 800px;
   width: 80%;
   max-height: 80%;
   height: 80%;
-  background-color: blue;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -86,7 +90,8 @@ div {
 }
 
 
-#seccion-02-container{
+#seccion-02-container,
+#seccion-03-container{
   @media (max-width: 700px) {
     display: inline;
   }
@@ -180,7 +185,8 @@ div {
 
 }
 
-#seccion-02-imagen-main.ng-enter {
+#seccion-02-imagen-main.ng-enter,
+#seccion-03-imagen-main.ng-enter{
   -webkit-animation: titulo-enter 0.8s !important;
   -moz-animation: titulo-enter 0.8s !important;
   -ms-animation: titulo-enter 0.8s !important;
@@ -189,7 +195,8 @@ div {
 
 }
 
-#seccion-02-titulo.ng-enter {
+#seccion-02-titulo.ng-enter,
+#seccion-03-titulo.ng-enter{
   -webkit-animation: titulo-enter 0.8s !important;
   -moz-animation: titulo-enter 0.8s !important;
   -ms-animation: titulo-enter 0.8s !important;
@@ -198,7 +205,8 @@ div {
 
 }
 
-#seccion-02-sub-titulo.ng-enter {
+#seccion-02-sub-titulo.ng-enter,
+#seccion-03-sub-titulo.ng-enter{
   -moz-animation: titulo-enter 0.9s ease-in; /* Firefox */
   -webkit-animation: titulo-enter 0.9s ease-in; /* Safari and Chrome */
   -o-animation: titulo-enter 0.9s ease-in; /* Opera */
@@ -206,7 +214,8 @@ div {
 
 }
 
-#seccion-02-detalle.ng-enter {
+#seccion-02-detalle.ng-enter,
+#seccion-03-detalle.ng-enter{
   -webkit-animation: titulo-enter 1s !important;
   -moz-animation: titulo-enter 1s !important;
   -ms-animation: titulo-enter 1s !important;
@@ -214,7 +223,8 @@ div {
   animation: titulo-enter 1s !important;
 }
 
-#seccion-02-thumbs.ng-enter {
+#seccion-02-thumbs.ng-enter,
+#seccion-03-thumbs.ng-enter{
   -webkit-animation: titulo-enter 1.1s !important;
   -moz-animation: titulo-enter 1.1s !important;
   -ms-animation: titulo-enter 1.1s !important;
@@ -244,7 +254,10 @@ div {
 
 #seccion-02-titulo.ng-leave,
 #seccion-02-sub-titulo.ng-leave,
-#seccion-02-imagen-main.ng-leave {
+#seccion-02-imagen-main.ng-leave,
+#seccion-03-titulo.ng-leave,
+#seccion-03-sub-titulo.ng-leave,
+#seccion-03-imagen-main.ng-leave{
   -webkit-animation: titulo-leave 0.4s !important;
   -moz-animation: titulo-leave 0.4s !important;
   -ms-animation: titulo-leave 0.4s !important;
@@ -268,7 +281,8 @@ div {
   }
 }
 
-#seccion-02.ng-enter {
+#seccion-02.ng-enter,
+#seccion-03.ng-enter{
   background-color: violet;
   -webkit-animation: view-enter 0.8s !important;
   -moz-animation: view-enter 0.8s !important;
