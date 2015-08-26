@@ -39,6 +39,7 @@ div {
 }
 
 .fondo {
+  top: 0px;
   height: 100%;
   width: 200%;
   background: url(../img/burbujas.svg) 50% 50% repeat-x;
@@ -46,11 +47,13 @@ div {
 }
 
 .fondo2 {
+  top: 0px;
   height: 100%;
   width: 200%;
   background: url(../img/burbujas2.svg) 50% 50% repeat-x;
   overflow: hidden;
 }
+
 
 #seccion-01 {
   @include background-image(linear-gradient(left, #e3312d, #ffef26));
