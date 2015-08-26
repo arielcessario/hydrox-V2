@@ -41,14 +41,14 @@ div {
 .fondo {
   height: 100%;
   width: 200%;
-  background: url(../img/burbujas.png) 50% 50% repeat-x;
+  background: url(../img/burbujas.svg) 50% 50% repeat-x;
   overflow: hidden;
 }
 
 .fondo2 {
   height: 100%;
   width: 200%;
-  background: url(../img/burbujas2.png) 50% 50% repeat-x;
+  background: url(../img/burbujas2.svg) 50% 50% repeat-x;
   overflow: hidden;
 }
 
@@ -67,6 +67,16 @@ div {
 
 #seccion-02 {
   @include background-image(linear-gradient(left, #ffef26, #e3312d));
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+#seccion-04 {
+  @include background-image(linear-gradient(left, #ffefff, #04002a));
 
   display: flex;
   justify-content: center;

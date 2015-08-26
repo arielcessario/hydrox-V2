@@ -24,29 +24,28 @@
 <!--<div class="main-container" ng-view></div>-->
 <div id="main" ng-controller="MainController as mainCtrl">
     <!--{{mainCtrl.ypos}}-->
+
+
     <div id="seccion-01" data-0="transform:translate3d(0%,0%,0); "
          data-1000="transform:translate3d(-100%,0%,0);">
 
-        <div class="fondo" data-0="transform:translate3d(-40%,0%,0); "
-             data-2000="transform:translate3d(-100%,0%,0);"></div>
-        <div class="fondo2" data-0="transform:translate3d(-40%,0%,0); "
-             data-1200="transform:translate3d(-100%,0%,0);"></div>
 
-        <div id="seccion-01-container">
-            <!--<div style="pointer-events: all;" ng-click="mainCtrl.goToPage();">ir a tres</div>-->
-            <a href="#seccion-02" data-menu-top="500" ng-click="mainCtrl.goToPage();" style="pointer-events: all;">ir a
-                tres</a>
-        </div>
+            <div class="fondo" data-0="transform:translate3d(-50%,0%,0);"
+                 data-1200="transform:translate3d(-100%,0%,0);"></div>
+            <div class="fondo2" data-0="transform:translate3d(-30%,0%,0); "
+                 data-1200="transform:translate3d(-100%,0%,0);"></div>
+
     </div>
 
 
     <div id="seccion-02" data-0="transform:translate3d(100%,0%,0); "
          data-1000="transform:translate3d(0%,0%,0);"
          data-2000="transform:translate3d(-100%,0%,0);">
-        <div class="fondo" style="margin-top: -250px" data-0="transform:translate3d(-40%,0%,0); "
+        <div class="fondo" data-0="transform:translate3d(10%,0%,0);"
              data-2000="transform:translate3d(-100%,0%,0);"></div>
-        <div class="fondo2" style="margin-top: -250px" data-0="transform:translate3d(-40%,0%,0); "
+        <div class="fondo2" data-0="transform:translate3d(20%,0%,0);"
              data-2000="transform:translate3d(-100%,0%,0);"></div>
+
 
         <div class="upper-container">
             <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-titulo"
@@ -91,10 +90,7 @@
     <div id="seccion-03" data-1000="transform:translate3d(100%,0%,0); "
          data-2000="transform:translate3d(0%,0%,0);"
          data-3000="transform:translate3d(-100%,0%,0);">
-        <div class="fondo" data-0="transform:translate3d(-40%,0%,0); "
-             data-3000="transform:translate3d(-100%,0%,0);"></div>
-        <div class="fondo2" data-0="transform:translate3d(-40%,0%,0); "
-             data-4000="transform:translate3d(-100%,0%,0);"></div>
+
         <div class="upper-container">
             <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-03'" id="seccion-03-titulo"
                  class="titulo"/>
@@ -138,6 +134,8 @@
     <div id="seccion-04" data-2000="transform:translate3d(100%,0%,0); "
          data-3000="transform:translate3d(0%,0%,0);"
          data-4000="transform:translate3d(-100%,0%,0);"></div>
+
+
     <div id="seccion-05"></div>
     <div id="seccion-06"></div>
     <div id="seccion-07"></div>
