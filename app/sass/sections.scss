@@ -218,6 +218,14 @@ div {
   //left: 70%;
   pointer-events: all;
 
+  @media (max-width: 700px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-height: 75px;
+    width: 100%;
+  }
+
 }
 
 #seccion-02-imagen-main.ng-enter,
