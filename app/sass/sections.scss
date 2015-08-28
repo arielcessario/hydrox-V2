@@ -130,6 +130,16 @@ div {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 700px) {
+
+    max-width: 100%;
+    div{
+      img{
+        max-width: 100%;
+      }
+    }
+  }
 }
 
 .right-container {
@@ -157,6 +167,10 @@ div {
 .bottom-container {
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 700px) {
+    min-height: 80%;
+  }
 }
 
 .s-hidden {
