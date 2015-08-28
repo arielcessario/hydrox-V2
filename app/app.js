@@ -344,14 +344,14 @@
             vm.ypos = window.pageYOffset;
 
 
-            if ((window.pageYOffset > 1000 && window.pageYOffset < 2200) && vm.seccion != 'seccion-02') {
+            if ((window.pageYOffset > 800 && window.pageYOffset < 2200) && vm.seccion != 'seccion-02') {
                 //console.log('entra');
                 vm.seccion = 'seccion-02';
                 vm.img = 'zapa_neoprene_01.gif';
 
             }
 
-            if ((window.pageYOffset > 2000 && window.pageYOffset < 3200) && vm.seccion != 'seccion-03') {
+            if ((window.pageYOffset > 1800 && window.pageYOffset < 3200) && vm.seccion != 'seccion-03') {
                 console.log('entra');
                 vm.seccion = 'seccion-03';
                 vm.img = 'zapa_neoprene_01.gif';
@@ -359,7 +359,7 @@
             }
 
 
-            if ((window.pageYOffset > 3000 && window.pageYOffset < 4200) && vm.seccion != 'seccion-04') {
+            if ((window.pageYOffset > 2800 && window.pageYOffset < 4200) && vm.seccion != 'seccion-04') {
                 //console.log('entra');
                 vm.seccion = 'seccion-04';
                 vm.img = 'zapa_neoprene_01.gif';
@@ -367,56 +367,56 @@
             }
 
 
-            if ((window.pageYOffset > 4000 && window.pageYOffset < 5200) && vm.seccion != 'seccion-05') {
+            if ((window.pageYOffset > 3800 && window.pageYOffset < 5200) && vm.seccion != 'seccion-05') {
                 //console.log('entra');
                 vm.seccion = 'seccion-05';
                 vm.img = 'zapa_neoprene_01.gif';
                 //$scope.$apply();
             }
-            if ((window.pageYOffset > 5000 && window.pageYOffset < 6200) && vm.seccion != 'seccion-06') {
+            if ((window.pageYOffset > 4800 && window.pageYOffset < 6200) && vm.seccion != 'seccion-06') {
                 //console.log('entra');
                 vm.seccion = 'seccion-06';
                 vm.img = 'zapa_neoprene_01.gif';
                 //$scope.$apply();
             }
-            if ((window.pageYOffset > 6000 && window.pageYOffset < 7200) && vm.seccion != 'seccion-07') {
+            if ((window.pageYOffset > 5800 && window.pageYOffset < 7200) && vm.seccion != 'seccion-07') {
                 //console.log('entra');
                 vm.seccion = 'seccion-07';
                 vm.img = 'zapa_neoprene_01.gif';
                 //$scope.$apply();
             }
-            if ((window.pageYOffset > 7000 && window.pageYOffset < 8200) && vm.seccion != 'seccion-08') {
+            if ((window.pageYOffset > 6800 && window.pageYOffset < 8200) && vm.seccion != 'seccion-08') {
                 //console.log('entra');
                 vm.seccion = 'seccion-08';
                 vm.img = 'zapa_neoprene_01.gif';
                 //$scope.$apply();
             }
-            if ((window.pageYOffset > 8000 && window.pageYOffset < 9200) && vm.seccion != 'seccion-09') {
+            if ((window.pageYOffset > 7800 && window.pageYOffset < 9200) && vm.seccion != 'seccion-09') {
                 //console.log('entra');
                 vm.seccion = 'seccion-09';
                 vm.img = 'zapa_neoprene_01.gif';
                 //$scope.$apply();
             }
-            if ((window.pageYOffset > 9000 && window.pageYOffset < 10200) && vm.seccion != 'seccion-10') {
+            if ((window.pageYOffset > 8800 && window.pageYOffset < 10200) && vm.seccion != 'seccion-10') {
                 //console.log('entra');
                 vm.seccion = 'seccion-10';
                 vm.img = 'zapa_neoprene_' +
                     '01.gif';
                 //$scope.$apply();
             }
-            if ((window.pageYOffset > 10000 && window.pageYOffset < 11200) && vm.seccion != 'seccion-11') {
+            if ((window.pageYOffset > 9800 && window.pageYOffset < 11200) && vm.seccion != 'seccion-11') {
                 //console.log('entra');
                 vm.seccion = 'seccion-11';
                 vm.img = 'zapa_neoprene_01.gif';
                 //$scope.$apply();
             }
-            if ((window.pageYOffset > 11000 && window.pageYOffset < 12200) && vm.seccion != 'seccion-12') {
+            if ((window.pageYOffset > 10800 && window.pageYOffset < 12200) && vm.seccion != 'seccion-12') {
                 //console.log('entra');
                 vm.seccion = 'seccion-12';
                 vm.img = 'zapa_neoprene_01.gif';
                 //$scope.$apply();
             }
-            if ((window.pageYOffset > 12000 && window.pageYOffset < 13200) && vm.seccion != 'seccion-13') {
+            if ((window.pageYOffset > 11800 && window.pageYOffset < 13200) && vm.seccion != 'seccion-13') {
                 //console.log('entra');
                 vm.seccion = 'seccion-13';
                 vm.img = 'zapa_neoprene_01.gif';
