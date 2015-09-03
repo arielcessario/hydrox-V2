@@ -20,6 +20,7 @@ ExpiresDefault "access plus 1 week"
 ## EXPIRES CACHING ##
 
 
+
 <IfModule mod_headers.c>
   <FilesMatch "\.(js|css|xml|gz)$">
     Header append Vary: Accept-Encoding
