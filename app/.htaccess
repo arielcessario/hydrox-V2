@@ -2,11 +2,6 @@ RewriteEngine On
 RewriteCond %{HTTP:Authorization} .+
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-AddType image/svg+xml .svg
-AddOutputFilterByType DEFLATE image/svg+xml
-
-AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/x-javascript text/javascript application/javascript
-
 
 ## EXPIRES CACHING ##
 <IfModule mod_expires.c>
