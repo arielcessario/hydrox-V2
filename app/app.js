@@ -176,25 +176,25 @@
             if (parseFloat(position03) < 20 && parseFloat(position03) > -99) {
                 console.log(position03);
                 vm.seccion = 'seccion-03';
-                vm.img = 'zapa_neoprene_01.gif';
+                vm.img = 'bota_01.gif';
             }
             
             if (parseFloat(position04) < 20 && parseFloat(position04) > -99) {
                 console.log(position04);
                 vm.seccion = 'seccion-04';
-                vm.img = 'zapa_neoprene_01.gif';
+                vm.img = 'medias_neoprene_01.gif';
             }
             
             if (parseFloat(position05) < 20 && parseFloat(position05) > -99) {
                 console.log(position05);
                 vm.seccion = 'seccion-05';
-                vm.img = 'zapa_neoprene_01.gif';
+                vm.img = 'jardinero_01.gif';
             }
             
             if (parseFloat(position06) < 20 && parseFloat(position06) > -99) {
                 console.log(position06);
                 vm.seccion = 'seccion-06';
-                vm.img = 'zapa_neoprene_01.gif';
+                vm.img = 'pantalon_neoprene_01.gif';
             }
             
             if (parseFloat(position07) < 20 && parseFloat(position07) > -99) {
@@ -206,31 +206,31 @@
             if (parseFloat(position08) < 20 && parseFloat(position08) > -99) {
                 console.log(position08);
                 vm.seccion = 'seccion-08';
-                vm.img = 'zapa_neoprene_01.gif';
+                vm.img = 'calza_01.gif';
             }
             
             if (parseFloat(position09) < 20 && parseFloat(position09) > -99) {
                 console.log(position09);
                 vm.seccion = 'seccion-09';
-                vm.img = 'zapa_neoprene_01.gif';
+                vm.img = 'remera_lycra_01.gif';
             }
             
             if (parseFloat(position10) < 20 && parseFloat(position10) > -99) {
                 console.log(position10);
                 vm.seccion = 'seccion-10';
-                vm.img = 'zapa_neoprene_01.gif';
+                vm.img = 'remera_neoprene_01.gif';
             }
             
             if (parseFloat(position11) < 20 && parseFloat(position11) > -99) {
                 console.log(position11);
                 vm.seccion = 'seccion-11';
-                vm.img = 'zapa_neoprene_01.gif';
+                vm.img = 'barbijo.gif';
             }
             
             if (parseFloat(position12) < 20 && parseFloat(position12) > -99) {
                 console.log(position12);
                 vm.seccion = 'seccion-12';
-                vm.img = 'zapa_neoprene_01.gif';
+                vm.img = 'milton_01.gif';
             }
             
             if (parseFloat(position13) < 20 && parseFloat(position13) > -99) {
