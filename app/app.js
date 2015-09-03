@@ -347,7 +347,7 @@
             if ((window.pageYOffset > 800 && window.pageYOffset < 2200) && vm.seccion != 'seccion-02') {
                 //console.log('entra');
                 vm.seccion = 'seccion-02';
-                vm.img = 'zapatilla_01.gif';
+                vm.img = 'zapa_neoprene_01.gif';
 
             }
 
@@ -362,7 +362,7 @@
             if ((window.pageYOffset > 2800 && window.pageYOffset < 4200) && vm.seccion != 'seccion-04') {
                 //console.log('entra');
                 vm.seccion = 'seccion-04';
-                vm.img = 'medias_01.gif';
+                vm.img = 'medias_neoprene_01.gif';
                 //$scope.$apply();
             }
 
