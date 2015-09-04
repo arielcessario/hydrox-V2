@@ -366,6 +366,27 @@ div {
   animation: titulo-enter 1s !important;
 }
 
+
+
+.sub-titulo{
+  font-family: 'Bebas Regular', sans-serif;
+  color: white;
+  font-size: 35px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+
+.detalle{
+  font-family: 'Bebas Regular', sans-serif;
+  font-size: 26px;
+  font-variant: small-caps;
+  color: white;
+  margin-top: -10px;
+
+
+}
+
 #seccion-02-thumbs.ng-enter,
 #seccion-03-thumbs.ng-enter,
 #seccion-04-thumbs.ng-enter,
