@@ -1,1273 +1,535 @@
 <!DOCTYPE html>
-
 <!--[if lt IE 7]>
-
-<html lang="en" ng-app="hydrox" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>
-
-<html lang="en" ng-app="hydrox" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>
-
-<html lang="en" ng-app="hydrox" class="no-js lt-ie9"> <![endif]-->
-
+<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-
-<html lang="en" ng-app="hydrox" class="no-js"> <!--<![endif]-->
-
+<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
 <head>
-
     <meta charset="utf-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title>My AngularJS App</title>
-
     <meta name="description" content="">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-
-    <link rel="stylesheet" href="app.css">
-
-    <link rel="stylesheet" href="stylesheets/sections.css">
-
-
+    <link rel="stylesheet" href="stylesheets/parallax.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
+<body ng-controller="MainController as mainCtrl">
 
-<body scroll id="">
+<div id="menu">
+    <div id="menu-mobile-buttons">
+        <button class="mobile-button" ng-click="mainCtrl.scrollToMobile(1);mainCtrl.openMobile = false;">Zapatillas
+        </button>
+        <button class="mobile-button" ng-click="mainCtrl.scrollToMobile(2);mainCtrl.openMobile = false;">Bota</button>
+        <button class="mobile-button" ng-click="mainCtrl.scrollToMobile(3);mainCtrl.openMobile = false;">Medias</button>
+        <button class="mobile-button" ng-click="mainCtrl.scrollToMobile(4);mainCtrl.openMobile = false;">Jardinero
+        </button>
+        <button class="mobile-button" ng-click="mainCtrl.scrollToMobile(5);mainCtrl.openMobile = false;">Pantalón
+        </button>
+        <button class="mobile-button" ng-click="mainCtrl.scrollToMobile(6);mainCtrl.openMobile = false;">Calza</button>
+        <button class="mobile-button" ng-click="mainCtrl.scrollToMobile(7);mainCtrl.openMobile = false;">R.Neoprene
+        </button>
+        <button class="mobile-button" ng-click="mainCtrl.scrollToMobile(8);mainCtrl.openMobile = false;">R.Lycra
+        </button>
+        <button class="mobile-button" ng-click="mainCtrl.scrollToMobile(9);mainCtrl.openMobile = false;">Barbijo
+        </button>
+        <button class="mobile-button" ng-click="mainCtrl.scrollToMobile(10);mainCtrl.openMobile = false;">Miton</button>
+    </div>
+
+    <div id="menu-thumbs-buttons">
+        <img ng-repeat="thumb in mainCtrl.thumbs"
+             ng-click="mainCtrl.selectImage(thumb.big, thumb.img); mainCtrl.openThumbs = false;"
+             ng-src="{{'img/'+thumb.small}}"
+             alt="{{thumb.big}}"
+             class="menu-thumb-button"
+             width="75">
+    </div>
 
 
+    <div id="menu-contact-buttons" ng-if="mainCtrl.openContact">
+        <button class="mobile-button" ng-click="mainCtrl.goToAdmin('contacto'); mainCtrl.openContact = false;">
+            Contacto
+        </button>
+        <button class="mobile-button" ng-click="mainCtrl.goToAdmin('admin');mainCtrl.openContact = false;">
+            Descargas
+        </button>
+    </div>
+    <div id="menu-mobile">
+        <a href="" id="button-izquierda" ng-click="mainCtrl.openThumbs = !mainCtrl.openThumbs"
+           ng-mouseover="mainCtrl.openMobile = false;" class="hi-icon">
+        </a>
 
-<!--<div class="main-container" ng-view></div>-->
+               <a href="" id="button-centro" ng-click="mainCtrl.hideText = !mainCtrl.hideText" class="hi-icon">
+        </a>
 
-<div id="main" ng-controller="MainController as mainCtrl">
+        <!--<div id="menu-mobile-spacer"></div>-->
+        <button id="button-derecha" ng-click="mainCtrl.openMobile = !mainCtrl.openMobile"
+                ng-mouseover="mainCtrl.openThumbs = false;" class="hi-icon"></button>
+    </div>
+    <!--<div id="menu-desktop">-->
+    <!--<div class="menu-button" ng-click="mainCtrl.scrollTo(1100);">Zapatillas</div>-->
+    <!--<div class="menu-button" ng-click="mainCtrl.scrollTo(2100);">Bota</div>-->
+    <!--<div class="menu-button" ng-click="mainCtrl.scrollTo(3100);">Medias</div>-->
+    <!--<div class="menu-button" ng-click="mainCtrl.scrollTo(4100);">Jardinero</div>-->
+    <!--<div class="menu-button" ng-click="mainCtrl.scrollTo(5100);">Pantalón</div>-->
+    <!--<div class="menu-button" ng-click="mainCtrl.scrollTo(6100);">Calza</div>-->
+    <!--<div class="menu-button" ng-click="mainCtrl.scrollTo(7100);">Remera Neo</div>-->
+    <!--<div class="menu-button" ng-click="mainCtrl.scrollTo(8100);">Remera Lycra</div>-->
+    <!--<div class="menu-button" ng-click="mainCtrl.scrollTo(9100);">Barbijo</div>-->
+    <!--<div class="menu-button" ng-click="mainCtrl.scrollTo(10100);">Miton</div>-->
+    <!--</div>-->
+</div>
 
-    <!--{{mainCtrl.ypos}}-->
+<div class="upper-container">
+    <img src="img/logo_seccion.png" ng-if="mainCtrl.header" id="seccion-02-titulo"
+         class="titulo"/>
+
+    <div class="contenedor-upper">
+    <button class="boton-contacto" ng-click="mainCtrl.goToAdmin('contacto'); mainCtrl.openContact = false;">
+    </button>
+    <button class="boton-ingreso" ng-click="mainCtrl.goToAdmin('admin');mainCtrl.openContact = false;">
+    </button>
+</div>
+</div>
+
+<div ng-if="!mainCtrl.isMobile" ng-click="mainCtrl.adelante();" id="nav-right"></div>
+<div ng-if="!mainCtrl.isMobile" ng-click="mainCtrl.atras();" id="nav-left"></div>
+
+<div class="parallax " id="main-container">
+    <div id="group1" class="parallax__group">
+
+        <div class="parallax__layer parallax__layer--deep" id="background-layer">
+        </div>
+        <div class="parallax__layer parallax__layer--back">
+        </div>
+        <div class="parallax__layer parallax__layer--base">
+        </div>
+        <div class="parallax__layer parallax__layer--fore" id="layer-fore">
+        </div>
+        <div class="parallax__layer parallax__layer--fore2" id="layer-fore2">
+        </div>
+
+        <div id="secciones" ng-mouseover="mainCtrl.openThumbs = false; mainCtrl.openMobile = false;">
+            <div id="seccion-01" class="seccion">
+                <div class="contenedor-inicio">
+                    <div class="contenedor-logo-inicio">
+                        <img class="hydrox-inicio" src="img/hydrox.svg">
+                        <img class="x-inicio" src="img/x.svg">
+                        <img class="foot-inicio" src="img/foot.svg">
+                    </div>
+                </div>
+            </div>
+
+            <div id="seccion-02" class="seccion">
+
+                <div class="bottom-container">
+                    <div class="left-container">
+                        <div ng-if="mainCtrl.seccion == 'seccion-02' || mainCtrl.isMobile" id="seccion-02-imagen-main"
+                             class="imagen-main">
+                            <img ng-src="img/{{mainCtrl.img02}}" alt="">
+                        </div>
+                    </div>
+                    <div class="right-container" ng-class="{'text-hidden': mainCtrl.hideText}">
+                        <div ng-if="mainCtrl.seccion == 'seccion-02' || mainCtrl.isMobile" id="seccion-02-sub-titulo"
+                             class="sub-titulo">
+                            ZAPATILLA DE <br>
+                            NEOPRENE 3MM <br>
+                        </div>
+                        <div ng-if="mainCtrl.seccion == 'seccion-02' || mainCtrl.isMobile" id="seccion-02-detalle"
+                             class="detalle">
+                            Suela de caucho TR Antideslizante <br>
+                            Gráfica de Refuerzo <br>
+                            Ribeteada con Lycra <br>
+                            Talles: 32, 34, XS, S, M, L, XL, XXL
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="seccion-03" class="seccion">
+
+                <div class="bottom-container">
+                    <div class="left-container">
+                        <div ng-if="mainCtrl.seccion == 'seccion-03' || mainCtrl.isMobile" id="seccion-03-imagen-main"
+                             class="imagen-main">
+                            <img ng-src="img/{{mainCtrl.img03}}" alt="">
+                        </div>
+                    </div>
+                    <div class="right-container" ng-class="{'text-hidden': mainCtrl.hideText}">
+                        <div ng-if="mainCtrl.seccion == 'seccion-03' || mainCtrl.isMobile" id="seccion-03-sub-titulo"
+                             class="sub-titulo">
+                            BOTA LINUX <br>
+                            NEOPRENE 4MM <br>
+                        </div>
+                        <div ng-if="mainCtrl.seccion == 'seccion-03' || mainCtrl.isMobile" id="seccion-03-detalle"
+                             class="detalle">
+                            Puño elástico de 2mm <br>
+                            Suela caucho TR antidezlizante <br>
+                            Gráfica de refuerzo en zona de contacto <br>
+                            Ribeteada con lycra <br>
+                            Talles: XS,S,M,L,XL,XXL <br>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="seccion-04" class="seccion">
+                <div class="bottom-container">
+                    <div class="left-container">
+                        <div ng-if="mainCtrl.seccion == 'seccion-04' || mainCtrl.isMobile" id="seccion-04-imagen-main"
+                             class="imagen-main">
+                            <img ng-src="img/{{mainCtrl.img04}}" alt="">
+                        </div>
+                    </div>
+                    <div class="right-container" ng-class="{'text-hidden': mainCtrl.hideText}">
+                        <div ng-if="mainCtrl.seccion == 'seccion-04' || mainCtrl.isMobile" id="seccion-04-sub-titulo"
+                             class="sub-titulo">
+                            Medias estanca <br>
+                            neoprene 3mm <br>
+                        </div>
+                        <div ng-if="mainCtrl.seccion == 'seccion-04' || mainCtrl.isMobile" id="seccion-04-detalle"
+                             class="detalle">
+                            Costuras entancas <br>
+                            Estampado en suela antideslizante <br>
+                            Ribeteado con lycra <br>
+                            Talles: 32,34,XS(36),S(38),M(40)
+                            L(42),Xl(44),XXL(46) <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="seccion-05" class="seccion">
+                <div class="bottom-container">
+                    <div class="left-container">
+                        <div ng-if="mainCtrl.seccion == 'seccion-05' || mainCtrl.isMobile" id="seccion-05-imagen-main"
+                             class="imagen-main">
+                            <img ng-src="img/{{mainCtrl.img05}}" alt="">
+                        </div>
+                    </div>
+                    <div class="right-container" ng-class="{'text-hidden': mainCtrl.hideText}">
+                        <div ng-if="mainCtrl.seccion == 'seccion-05' || mainCtrl.isMobile" id="seccion-05-sub-titulo"
+                             class="sub-titulo">
+                            Jardinero de <br>
+                            neoprene 3m: <br>
+                        </div>
+                        <div ng-if="mainCtrl.seccion == 'seccion-05' || mainCtrl.isMobile" id="seccion-05-detalle"
+                             class="detalle">
+                            Costuras estancas. <br>
+                            Asiento Antideslizante. <br>
+                            Rodillera reforzada. <br>
+                            Trasrodilla 1,5mm para mayor comodidad. <br>
+                            Puño 1,5mm para facilitar la colocación <br>
+                            Doble velcro en hombreras. <br>
+                            Ribeteado con Lycra. <br>
+                            Talles: S,M;L,XL,XXL <br>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="seccion-06" class="seccion">
+                <div class="bottom-container">
+                    <div class="left-container">
+                        <div ng-if="mainCtrl.seccion == 'seccion-06' || mainCtrl.isMobile" id="seccion-06-imagen-main"
+                             class="imagen-main">
+                            <img ng-src="img/{{mainCtrl.img06}}" alt="" width="">
+                        </div>
+                    </div>
+                    <div class="right-container" ng-class="{'text-hidden': mainCtrl.hideText}">
+                        <div ng-if="mainCtrl.seccion == 'seccion-06' || mainCtrl.isMobile" id="seccion-06-sub-titulo"
+                             class="sub-titulo">
+                            Pantalon de <br>
+                            neoprene 3 mm: <br>
+                        </div>
+                        <div ng-if="mainCtrl.seccion == 'seccion-06' || mainCtrl.isMobile" id="seccion-06-detalle"
+                             class="detalle">
+                            Suela de caucho TR Antideslizante <br>
+                            Gráfica de Refuerzo <br>
+                            Ribeteada con Lycra <br>
+                            Talles: 32, 34, XS, S, M, L, XL, XXL <br>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="seccion-07" class="seccion">
+                <div class="bottom-container">
+                    <div class="left-container">
+                        <div ng-if="mainCtrl.seccion == 'seccion-07' || mainCtrl.isMobile" id="seccion-07-imagen-main"
+                             class="imagen-main">
+                            <img ng-src="img/{{mainCtrl.img07}}" alt="" width="">
+                        </div>
+                    </div>
+                    <div class="right-container" ng-class="{'text-hidden': mainCtrl.hideText}">
+                        <div ng-if="mainCtrl.seccion == 'seccion-07' || mainCtrl.isMobile" id="seccion-07-sub-titulo"
+                             class="sub-titulo">
+                            Calza de <br>
+                            neoprene 3mm: <br>
+                        </div>
+                        <div ng-if="mainCtrl.seccion == 'seccion-07' || mainCtrl.isMobile" id="seccion-07-detalle"
+                             class="detalle">
+                            Ribeteados con lycra <br>
+                            Costuras estancas <br>
+                            Asiento Antideslizante <br>
+                            Talles: 6-8-10-12 (niños) <br>
+                            S,M;L,XL,XXL (adultos) <br>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="seccion-08" class="seccion">
+                <div class="bottom-container">
+                    <div class="left-container">
+                        <div ng-if="mainCtrl.seccion == 'seccion-08' || mainCtrl.isMobile" id="seccion-08-imagen-main"
+                             class="imagen-main">
+                            <img ng-src="img/{{mainCtrl.img08}}" alt="" width="">
+                        </div>
+                    </div>
+                    <div class="right-container" ng-class="{'text-hidden': mainCtrl.hideText}">
+                        <div ng-if="mainCtrl.seccion == 'seccion-08' || mainCtrl.isMobile" id="seccion-08-sub-titulo"
+                             class="sub-titulo">
+                            Remera neoprene <br>
+                            y mangas de Lycra: <br>
+                        </div>
+                        <div ng-if="mainCtrl.seccion == 'seccion-08' || mainCtrl.isMobile" id="seccion-08-detalle"
+                             class="detalle">
+                            Cuerpo de neoprene 1,5 mm <br>
+                            mangas de lycra Guilford <br>
+                            Ribeteados con Lycra <br>
+                            Molderia de axila helicoidal <br>
+                            Talles: 6,8,10,12 (niños) <br>
+                            S,M,L,XL,XXL (adultos) <br>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="seccion-09" class="seccion">
+                <div class="bottom-container">
+                    <div class="left-container">
+                        <div ng-if="mainCtrl.seccion == 'seccion-09' || mainCtrl.isMobile" id="seccion-09-imagen-main"
+                             class="imagen-main">
+                            <img ng-src="img/{{mainCtrl.img09}}" alt="" width="">
+                        </div>
+                    </div>
+                    <div class="right-container" ng-class="{'text-hidden': mainCtrl.hideText}">
+                        <div ng-if="mainCtrl.seccion == 'seccion-09' || mainCtrl.isMobile" id="seccion-09-sub-titulo"
+                             class="sub-titulo">
+                            Remera Lycra:
+                        </div>
+                        <div ng-if="mainCtrl.seccion == 'seccion-09' || mainCtrl.isMobile" id="seccion-09-detalle"
+                             class="detalle">
+                            Costuras Planas y elasticas <br>
+                            Ribeteados con Lycra <br>
+                            Lycra para mallas Guilford <br>
+                            Molderia de axila helicoidal <br>
+                            Talles: 6,8,10,12 (niños) <br>
+                            S,M,L,XL,XXL (adultos) <br>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="seccion-10" class="seccion">
+                <div class="bottom-container">
+                    <div class="left-container">
+                        <div ng-if="mainCtrl.seccion == 'seccion-10' || mainCtrl.isMobile" id="seccion-10-imagen-main"
+                             class="imagen-main">
+                            <img ng-src="img/{{mainCtrl.img10}}" alt="" width="">
+                        </div>
+                    </div>
+                    <div class="right-container" ng-class="{'text-hidden': mainCtrl.hideText}">
+                        <div ng-if="mainCtrl.seccion == 'seccion-10' || mainCtrl.isMobile" id="seccion-10-sub-titulo"
+                             class="sub-titulo">
+                            Barbijo <br>
+                            neoprene 3mm: <br>
+                        </div>
+                        <div ng-if="mainCtrl.seccion == 'seccion-10' || mainCtrl.isMobile" id="seccion-10-detalle"
+                             class="detalle">
+                            Micropolar antipeeling <br>
+                            Ribeteado con lycra <br>
+                            Velcro de regulacion en la nuca <br>
+                            Troquelado para una mejor respiración <br>
+                            Talle Unico <br>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="seccion-11" class="seccion">
+                <div class="bottom-container">
+                    <div class="left-container">
+                        <div ng-if="mainCtrl.seccion == 'seccion-11' || mainCtrl.isMobile" id="seccion-11-imagen-main"
+                             class="imagen-main">
+                            <img ng-src="img/{{mainCtrl.img11}}" alt="" width="">
+                        </div>
+                    </div>
+                    <div class="right-container" ng-class="{'text-hidden': mainCtrl.hideText}">
+                        <div ng-if="mainCtrl.seccion == 'seccion-11' || mainCtrl.isMobile" id="seccion-11-sub-titulo"
+                             class="sub-titulo">
+                            Miton 3mm:
+                        </div>
+                        <div ng-if="mainCtrl.seccion == 'seccion-11' || mainCtrl.isMobile" id="seccion-11-detalle"
+                             class="detalle">
+                            Ribeteado con lycra <br>
+                            Velcro de regulación <br>
+                            Estampa en superficia superior <br>
+                            Talle Unico <br>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="seccion-12" class="seccion">
+
+                <div id="form" ng-class="{'form-visible':mainCtrl.seccion == 'seccion-12'}">
+                    <div id="contacto" ng-if="mainCtrl.admin == 'contacto'">
+                        <div class="form-titulo">CONTACTO:</div>
+                        <div class="form-input">
+
+                            <span>NOMBRE:</span>
+                            <input type="text" ng-model="mainCtrl.contactoNombre">
+                        </div>
+                        <div class="form-input">
+
+                            <span>TELEFONO:</span>
+                            <input type="text" ng-model="mainCtrl.contactoTelefono">
+                        </div>
+                        <div class="form-input">
+                            <span>MAIL:</span>
+                            <input type="text" ng-model="mainCtrl.contactoMail">
+                        </div>
+                        <div class="form-textarea">
+                            <span>CONSULTA:</span>
+                            <textarea type="text" ng-model="mainCtrl.contactoMensaje"></textarea>
+                        </div>
+                        <div class="button-bar">
+                            <button id="boton-ok" ng-click="mainCtrl.sendMail();"></button>
+
+                            <span id="mensaje-ok" ng-if="mainCtrl.enviado">Mensaje enviado con éxito</span>
+                            <span id="mensaje-error" ng-if="mainCtrl.contactoError">Error al enviar el mensaje, por favor escriba a </span>
+                        </div>
+                        <div ng-if="mainCtrl.isMobile" style="height: 300px;"></div>
+                    </div>
+                    <div id="nuevo-usuario" ng-if="mainCtrl.logged == undefined && mainCtrl.admin == 'nuevo'">
+                        <div class="form-titulo">NUEVO USUARIO</div>
+                        <div class="nuevo-usuario-inputs">
+                            <div class="form-input"><span>Nombre</span>
+                                <input type="text" id="nombre" ng-model="mainCtrl.usuario.nombre">
+                            </div>
+                            <div class="form-input"><span>MAIL</span>
+                                <input type="email" id="email" ng-model="mainCtrl.usuario.mail">
+                            </div>
+                            <div class="form-input"><span>CONTRASEÑA</span>
+                                <input type="password" id="password" ng-model="mainCtrl.usuario.password">
+                            </div>
+
+                        </div>
+                        <div class="nuevo-usuario-button-bar">
+                            <button ng-click="mainCtrl.saveUsuario();">GUARDAR</button>
+                            <button ng-click="mainCtrl.admin = 'admin'">CANCELAR</button>
+                        </div>
+                    </div>
+
+                    <div id="ingreso" ng-if="mainCtrl.logged == undefined && mainCtrl.admin == 'admin'">
+
+                        <div class="form-titulo">INGRESO</div>
+
+                        <div class="form-input">
+                            <span>MAIL</span>
+                            <input id="mail" type="email" ng-model="mainCtrl.mail"
+                                   ng-keypress="mainCtrl.loginPrev($event);">
+                        </div>
+                        <div class="form-input">
+                            <span>CONTRASEÑA</span>
+                            <input id="password" type="password" ng-model="mainCtrl.password"
+                                   ng-keypress="mainCtrl.loginPrev($event);">
+                        </div>
+                        <div class="administracion-button-bar">
+                            <button ng-click="mainCtrl.login();">OK</button>
+                            <button ng-click="mainCtrl.nuevoUsuario();">NUEVO USUARIO</button>
+                            <button ng-click="mainCtrl.recuperarPassword();">RECUPERAR CONTRASEÑA</button>
+                        </div>
+
+                    </div>
+
+                    <div id="catalogo" ng-if="mainCtrl.logged != undefined && mainCtrl.admin == 'admin'">
+
+                        <div class="form-titulo2">DESCARGA DE FOTOGRAFIAS</div>
+                        <div class="admin-inputs">
+                            <select name="" id="fotos"
+                                    ng-model="mainCtrl.fotoDownload"
+                                    ng-options="foto.texto for foto in mainCtrl.descargasDownload"></select>
+                        </div>
+                        <button ng-click="mainCtrl.downloadURI('foto');">BAJAR</button>
+
+                        <div class="form-titulo2">MODIFICAR DATOS PERSONALES</div>
+                        <div class="admin-inputs">
+                            <div class="form-input"><span>NOMBRE</span>
+                                <input type="text" id="nombre" ng-model="mainCtrl.usuario.nombre">
+                            </div>
+                            <div class="form-input"><span>MAIL</span>
+                                <input type="email" id="email" ng-model="mainCtrl.usuario.mail">
+                            </div>
+                            <div class="form-input"><span>CONTRASEÑA</span>
+                                <input type="password" id="password" ng-model="mainCtrl.usuario.password">
+                            </div>
+
+                        </div>
+                        <div class="nuevo-usuario-button-bar">
+                            <button ng-click="mainCtrl.updateUsuario();">GUARDAR</button>
+                            <button ng-click="">CANCELAR</button>
+                            <button ng-click="mainCtrl.logout();" ng-if="mainCtrl.logged != undefined">SALIR</button>
+
+                        </div>
+
+                    </div>
+
+                    <div id="clientes-listado" ng-if="mainCtrl.logged.data.rol == 1">
+
+                        <table>
+                            <tr ng-repeat="usuario in mainCtrl.usuarios">
+                                <td>{{usuario.mail}}</td>
+                                <td>
+                                    <button ng-class="{'button-activar-activado':usuario.status == 1}"
+                                            class="button-activar" ng-click="mainCtrl.activarUsuario(usuario);">
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
 
 
+            </div>
 
-
-
-    <div id="seccion-01" data-0="transform:translate3d(0%,0%,0); "
-
-         data-1000="transform:translate3d(-100%,0%,0);">
-
-
-
-
-
-        <div class="fondo" data-0="transform:translate3d(-60%,0%,0);"
-
-             data-1200="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="fondo2" data-0="transform:translate3d(-10%,0%,0); "
-
-             data-1200="transform:translate3d(-100%,0%,0);"></div>
-
+        </div>
 
 
     </div>
 
-
-
-
-
-    <div id="seccion-02" data-0="transform:translate3d(100%,0%,0); "
-
-         data-1000="transform:translate3d(0%,0%,0);"
-
-         data-2000="transform:translate3d(-100%,0%,0);">
-
-
-
-        <div class="fondo" data-0="transform:translate3d(0%,0%,0);"
-
-             data-2000="transform:translate3d(-100%,0%,0);"></div>
-
-
-
-        <div class="fondo2" data-0="transform:translate3d(40%,0%,0);"
-
-             data-2000="transform:translate3d(-100%,0%,0);"></div>
-
-
-
-        <div class="upper-container">
-
-            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-titulo"
-
-                 class="titulo"/>
-
-
-
-        </div>
-
-        <div class="bottom-container">
-
-            <div class="left-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-imagen-main" class="imagen-main">
-
-                    <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
-
-                </div>
-
-            </div>
-
-
-
-
-
-            <div class="right-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-sub-titulo" class="sub-titulo">
-
-                    ZAPATILLA DE
-
-                    NEOPRENE DE 3MM
-
-                </div>
-
-                <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-detalle" class="detalle">
-
-                    Suela de caucho TR Antideslizante <br>
-
-                    Gráfica de Refuerzo <br>
-
-                    Ribeteada con Lycra <br>
-
-                    Talles: 32, 34, XS, S, M, L, XL, XXL <br>
-
-                </div>
-
-
-
-
-
-                <div ng-if="mainCtrl.seccion == 'seccion-02'" id="seccion-02-thumbs" class="thumbs">
-
-                    <img ng-click="mainCtrl.selectImage('zapa_neoprene_01t.png')" src="img/zapa_neoprene_01t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img ng-click="mainCtrl.selectImage('Zapa_neoprene_02t.png')" src="img/Zapa_neoprene_02t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!--SECCION 03-->
-
-    <div id="seccion-03" data-1000="transform:translate3d(100%,0%,0); "
-
-         data-2000="transform:translate3d(0%,0%,0);"
-
-         data-3000="transform:translate3d(-100%,0%,0);">
-
-
-
-        <div class="fondo" data-800="transform:translate3d(0%,0%,0);"
-
-             data-3000="transform:translate3d(-100%,0%,0);"></div>
-
-
-
-        <div class="fondo2" data-1000="transform:translate3d(70%,0%,0);"
-
-             data-3200="transform:translate3d(-100%,0%,0);"></div>
-
-
-
-        <div class="upper-container">
-
-            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-03'" id="seccion-03-titulo"
-
-                 class="titulo"/>
-
-
-
-        </div>
-
-        <div class="bottom-container">
-
-            <div class="left-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-03'" id="seccion-03-imagen-main" class="imagen-main">
-
-                    <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
-
-                </div>
-
-            </div>
-
-
-
-
-
-            <div class="right-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-03'" id="seccion-03-sub-titulo" class="sub-titulo">
-
-                    BOTA LINUX NEOPRENE DE 4MM
-
-                </div>
-
-                <div ng-if="mainCtrl.seccion == 'seccion-03'" id="seccion-03-detalle" class="detalle">
-
-                    Puño elástico de 2mm <br>
-
-                    Suela caucho TR antidezlizante <br>
-
-                    Gráfica de refuerzo en zona de contacto <br>
-
-                    Ribeteada con lycra <br>
-
-                    Talles: XS,S,M,L,XL,XXL <br>
-
-                </div>
-
-
-
-
-
-                <div ng-if="mainCtrl.seccion == 'seccion-03'" id="seccion-03-thumbs" class="thumbs">
-
-                    <img ng-click="mainCtrl.selectImage('bota_01t.png')" src="img/bota_01t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img ng-click="mainCtrl.selectImage('bota_02t.png')" src="img/bota_02t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                    <img ng-click="mainCtrl.selectImage('bota_03t.png')" src="img/bota_03t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-
-
-    <div id="seccion-04" data-2000="transform:translate3d(100%,0%,0); "
-
-         data-3000="transform:translate3d(0%,0%,0);"
-
-         data-4000="transform:translate3d(-100%,0%,0);">
-
-        <div class="fondo" data-1800="transform:translate3d(0%,0%,0);"
-
-             data-4000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="fondo2" data-2000="transform:translate3d(70%,0%,0);"
-
-             data-4200="transform:translate3d(-100%,0%,0);"></div>
-
-
-
-        <div class="upper-container">
-
-            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-04'" id="seccion-04-titulo"
-
-                 class="titulo"/>
-
-
-
-        </div>
-
-        <div class="bottom-container">
-
-            <div class="left-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-04'" id="seccion-04-imagen-main" class="imagen-main">
-
-                    <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
-
-                </div>
-
-            </div>
-
-
-
-
-
-            <div class="right-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-04'" id="seccion-04-sub-titulo" class="sub-titulo">
-
-                    Medias estanca neoprene de 3mm
-
-                </div>
-
-                <div ng-if="mainCtrl.seccion == 'seccion-04'" id="seccion-04-detalle" class="detalle">
-
-                    Costuras entancas <br>
-
-                    Estampado en suela antideslizante <br>
-
-                    Ribeteado con lycra <br>
-
-                    Talles: 32,34,XS(36),S(38) <br>
-
-                    M(40),L(42),Xl(44),XXL(46) <br>
-
-                </div>
-
-
-
-
-
-                <div ng-if="mainCtrl.seccion == 'seccion-04'" id="seccion-04-thumbs" class="thumbs">
-
-                    <img ng-click="mainCtrl.selectImage('medias_neoprene_01t.png')" src="img/medias_neoprene_01t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img ng-click="mainCtrl.selectImage('Zapa_neoprene_02t.png')" src="img/medias_neoprene_02t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-
-
-    </div>
-
-
-
-
-
-    <div id="seccion-05" data-3000="transform:translate3d(100%,0%,0); "
-
-         data-4000="transform:translate3d(0%,0%,0);"
-
-         data-5000="transform:translate3d(-100%,0%,0);">
-
-        <div class="fondo" data-2800="transform:translate3d(0%,0%,0);"
-
-             data-5000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="fondo2" data-3000="transform:translate3d(70%,0%,0);"
-
-             data-5200="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="upper-container">
-
-            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-05'" id="seccion-05-titulo"
-
-                 class="titulo"/>
-
-
-
-        </div>
-
-        <div class="bottom-container">
-
-            <div class="left-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-05'" id="seccion-05-imagen-main" class="imagen-main">
-
-                    <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
-
-                </div>
-
-            </div>
-
-
-
-
-
-            <div class="right-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-05'" id="seccion-05-sub-titulo" class="sub-titulo">
-
-                    Jardinero de neoprene de 3m:
-
-                </div>
-
-                <div ng-if="mainCtrl.seccion == 'seccion-05'" id="seccion-05-detalle" class="detalle">
-
-                    Costuras estancas. <br>
-                    Asiento Antideslizante. <br>
-                    Rodillera reforzada. <br>
-                    Trasrodilla 1,5mm para mayor comodidad. <br>
-                    Puño 1,5mm para facilitar la colocación <br>
-                    Doble velcro en hombreras. <br>
-                    Ribeteado con Lycra. <br>
-                    Talles: S,M;L,XL,XXL <br>
-
-                </div>
-
-
-
-
-
-                <div ng-if="mainCtrl.seccion == 'seccion-05'" id="seccion-05-thumbs" class="thumbs">
-
-                    <img ng-click="mainCtrl.selectImage('jardinero_01t.png')" src="img/jardinero_01t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img ng-click="mainCtrl.selectImage('jardinero_02t.png')" src="img/jardinero_02t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                    <img ng-click="mainCtrl.selectImage('jardinero_04t.png')" src="img/jardinero_04t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                    <img ng-click="mainCtrl.selectImage('jardinero_04t.png')" src="img/jardinero_04t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-
-
-    <div id="seccion-06" data-4000="transform:translate3d(100%,0%,0); "
-
-         data-5000="transform:translate3d(0%,0%,0);"
-
-         data-6000="transform:translate3d(-100%,0%,0);">
-
-        <div class="fondo" data-4000="transform:translate3d(0%,0%,0);"
-
-             data-6000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="fondo2" data-4000="transform:translate3d(70%,0%,0);"
-
-             data-6000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="upper-container">
-
-            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-06'" id="seccion-06-titulo"
-
-                 class="titulo"/>
-
-
-
-        </div>
-
-        <div class="bottom-container">
-
-            <div class="left-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-06'" id="seccion-06-imagen-main" class="imagen-main">
-
-                    <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
-
-                </div>
-
-            </div>
-
-
-
-
-
-            <div class="right-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-06'" id="seccion-06-sub-titulo" class="sub-titulo">
-
-                    Pantalon de neoprene
-                    de 3 mm:
-
-                </div>
-
-                <div ng-if="mainCtrl.seccion == 'seccion-06'" id="seccion-06-detalle" class="detalle">
-
-                    Suela de caucho TR Antideslizante <br>
-
-                    Gráfica de Refuerzo <br>
-
-                    Ribeteada con Lycra <br>
-
-                    Talles: 32, 34, XS, S, M, L, XL, XXL <br>
-
-                </div>
-
-
-
-
-
-                <div ng-if="mainCtrl.seccion == 'seccion-06'" id="seccion-06-thumbs" class="thumbs">
-
-                    <img ng-click="mainCtrl.selectImage('pantalon_neoprene_01t.png')" src="img/pantalon_neoprene_01t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img ng-click="mainCtrl.selectImage('pantalon_neoprene_02t.png')" src="img/pantalon_neoprene_02t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                    <img ng-click="mainCtrl.selectImage('pantalon_neoprene_03t.png')" src="img/pantalon_neoprene_03t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-
-
-                    <img ng-click="mainCtrl.selectImage('pantalon_neoprene_04t.png')" src="img/pantalon_neoprene_04t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-
-
-                    <img ng-click="mainCtrl.selectImage('pantalon_neoprene_05t.png')" src="img/pantalon_neoprene_05t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div id="seccion-07" data-5000="transform:translate3d(100%,0%,0); "
-
-         data-6000="transform:translate3d(0%,0%,0);"
-
-         data-7000="transform:translate3d(-100%,0%,0);">
-
-        <div class="fondo" data-5000="transform:translate3d(0%,0%,0);"
-
-             data-7000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="fondo2" data-5000="transform:translate3d(70%,0%,0);"
-
-             data-7000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="upper-container">
-
-            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-07'" id="seccion-07-titulo"
-
-                 class="titulo"/>
-
-
-
-        </div>
-
-        <div class="bottom-container">
-
-            <div class="left-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-07'" id="seccion-07-imagen-main" class="imagen-main">
-
-                    <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
-
-                </div>
-
-            </div>
-
-
-
-
-
-            <div class="right-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-07'" id="seccion-07-sub-titulo" class="sub-titulo">
-
-                    Calza de neoprene de 3mm:
-
-                </div>
-
-                <div ng-if="mainCtrl.seccion == 'seccion-07'" id="seccion-07-detalle" class="detalle">
-
-                    Ribeteados con lycra <br>
-                    Costuras estancas <br>
-                    Asiento Antideslizante <br>
-                    Talles: 6-8-10-12 (niños) <br>
-                    S,M;L,XL,XXL (adultos) <br>
-
-                </div>
-
-
-
-
-
-                <div ng-if="mainCtrl.seccion == 'seccion-07'" id="seccion-07-thumbs" class="thumbs">
-
-                    <img ng-click="mainCtrl.selectImage('calza_01t.png')" src="img/calza_01t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img ng-click="mainCtrl.selectImage('calza_02t.png')" src="img/calza_02t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                    <img ng-click="mainCtrl.selectImage('calza_03t.png')" src="img/calza_03t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                    <img ng-click="mainCtrl.selectImage('calza_04t.png')" src="img/calza_04t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div id="seccion-08" data-6000="transform:translate3d(100%,0%,0); "
-
-         data-7000="transform:translate3d(0%,0%,0);"
-
-         data-8000="transform:translate3d(-100%,0%,0);">
-
-        <div class="fondo" data-6000="transform:translate3d(0%,0%,0);"
-
-             data-8000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="fondo2" data-6000="transform:translate3d(70%,0%,0);"
-
-             data-8000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="upper-container">
-
-            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-08'" id="seccion-08-titulo"
-
-                 class="titulo"/>
-
-
-
-        </div>
-
-        <div class="bottom-container">
-
-            <div class="left-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-08'" id="seccion-08-imagen-main" class="imagen-main">
-
-                    <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
-
-                </div>
-
-            </div>
-
-
-
-
-
-            <div class="right-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-08'" id="seccion-08-sub-titulo" class="sub-titulo">
-
-                    Remera neoprene
-                    y mangas de Lycra:
-
-                </div>
-
-                <div ng-if="mainCtrl.seccion == 'seccion-08'" id="seccion-08-detalle" class="detalle">
-
-                    Cuerpo de neoprene 1,5 mm <br>
-                    mangas de lycra Guilford <br>
-                    Ribeteados con Lycra <br>
-                    Molderia de axila helicoidal <br>
-                    Talles: 6,8,10,12 (niños) <br>
-                    S,M,L,XL,XXL (adultos) <br>
-
-                </div>
-
-
-
-
-
-                <div ng-if="mainCtrl.seccion == 'seccion-08'" id="seccion-08-thumbs" class="thumbs">
-
-                    <img ng-click="mainCtrl.selectImage('remera_neoprene_01t.png')" src="img/remera_neoprene_01t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img ng-click="mainCtrl.selectImage('remera_neoprene_02t.png')" src="img/remera_neoprene_02t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div id="seccion-09" data-7000="transform:translate3d(100%,0%,0); "
-
-         data-8000="transform:translate3d(0%,0%,0);"
-
-         data-9000="transform:translate3d(-100%,0%,0);">
-
-        <div class="fondo" data-7000="transform:translate3d(0%,0%,0);"
-
-             data-9000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="fondo2" data-7000="transform:translate3d(70%,0%,0);"
-
-             data-9000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="upper-container">
-
-            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-09'" id="seccion-09-titulo"
-
-                 class="titulo"/>
-
-
-
-        </div>
-
-        <div class="bottom-container">
-
-            <div class="left-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-09'" id="seccion-09-imagen-main" class="imagen-main">
-
-                    <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
-
-                </div>
-
-            </div>
-
-
-
-
-
-            <div class="right-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-09'" id="seccion-09-sub-titulo" class="sub-titulo">
-
-                    Remera Lycra:
-
-                </div>
-
-                <div ng-if="mainCtrl.seccion == 'seccion-09'" id="seccion-09-detalle" class="detalle">
-
-                    Costuras Planas y elasticas <br>
-                    Ribeteados con Lycra <br>
-                    Lycra para mallas Guilford <br>
-                    Molderia de axila helicoidal <br>
-                    Talles: 6,8,10,12 (niños) <br>
-                    S,M,L,XL,XXL (adultos) <br>
-
-                </div>
-
-
-
-
-
-                <div ng-if="mainCtrl.seccion == 'seccion-09'" id="seccion-09-thumbs" class="thumbs">
-
-                    <img ng-click="mainCtrl.selectImage('remera_lycra_01t.png')" src="img/remera_lycra_01t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img ng-click="mainCtrl.selectImage('remera_lycra_02t.png')" src="img/remera_lycra_02t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                    <img ng-click="mainCtrl.selectImage('remera_lycra_03t.png')" src="img/remera_lycra_03t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                    <img ng-click="mainCtrl.selectImage('remera_lycra_04t.png')" src="img/remera_lycra_04t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-
-                    <img ng-click="mainCtrl.selectImage('remera_lycra_05t.png')" src="img/remera_lycra_05t.png"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-
-
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div id="seccion-10" data-8000="transform:translate3d(100%,0%,0); "
-
-         data-9000="transform:translate3d(0%,0%,0);"
-
-         data-10000="transform:translate3d(-100%,0%,0);">
-
-        <div class="fondo" data-8000="transform:translate3d(0%,0%,0);"
-
-             data-10000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="fondo2" data-8000="transform:translate3d(70%,0%,0);"
-
-             data-10000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="upper-container">
-
-            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-10'" id="seccion-10-titulo"
-
-                 class="titulo"/>
-
-
-
-        </div>
-
-        <div class="bottom-container">
-
-            <div class="left-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-10'" id="seccion-10-imagen-main" class="imagen-main">
-
-                    <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
-
-                </div>
-
-            </div>
-
-
-
-
-
-            <div class="right-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-10'" id="seccion-10-sub-titulo" class="sub-titulo">
-
-                    Barbijo neoprene 3mm:
-
-                </div>
-
-                <div ng-if="mainCtrl.seccion == 'seccion-10'" id="seccion-10-detalle" class="detalle">
-
-                    Micropolar antipeeling <br>
-                    Ribeteado con lycra <br>
-                    Velcro de regulacion en la nuca <br>
-                    Troquelado para una mejor respiración <br>
-                    Talle Unico <br>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div id="seccion-11" data-9000="transform:translate3d(100%,0%,0); "
-
-         data-10000="transform:translate3d(0%,0%,0);"
-
-         data-11000="transform:translate3d(-100%,0%,0);">
-
-        <div class="fondo" data-9000="transform:translate3d(0%,0%,0);"
-
-             data-11000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="fondo2" data-9000="transform:translate3d(70%,0%,0);"
-
-             data-11000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="upper-container">
-
-            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-11'" id="seccion-11-titulo"
-
-                 class="titulo"/>
-
-
-
-        </div>
-
-        <div class="bottom-container">
-
-            <div class="left-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-11'" id="seccion-11-imagen-main" class="imagen-main">
-
-                    <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
-
-                </div>
-
-            </div>
-
-
-
-
-
-            <div class="right-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-11'" id="seccion-11-sub-titulo" class="sub-titulo">
-
-                    Miton 3mm:
-
-                </div>
-
-                <div ng-if="mainCtrl.seccion == 'seccion-11'" id="seccion-11-detalle" class="detalle">
-
-                    Ribeteado con lycra <br>
-                    Velcro de regulación <br>
-                    Estampa en superficia superior <br>
-                    Talle Unico <br>
-
-                </div>
-
-
-
-
-
-                <div ng-if="mainCtrl.seccion == 'seccion-11'" id="seccion-11-thumbs" class="thumbs">
-
-                    <img ng-click="mainCtrl.selectImage('milton_01.gif')" src="img/milton_01.gif"
-
-                         alt=""
-
-                         width="75">
-
-                    <img ng-click="mainCtrl.selectImage('milton_02.gif')" src="img/milton_02.gif"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div id="seccion-12" data-10000="transform:translate3d(100%,0%,0); "
-
-         data-11000="transform:translate3d(0%,0%,0);"
-
-         data-12000="transform:translate3d(-100%,0%,0);">
-
-        <div class="fondo" data-10000="transform:translate3d(0%,0%,0);"
-
-             data-12000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="fondo2" data-10000="transform:translate3d(70%,0%,0);"
-
-             data-12000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="upper-container">
-
-            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-12'" id="seccion-12-titulo"
-
-                 class="titulo"/>
-
-
-
-        </div>
-
-        <div class="bottom-container">
-
-            <div class="left-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-12'" id="seccion-12-imagen-main" class="imagen-main">
-
-                    <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
-
-                </div>
-
-            </div>
-
-
-
-
-
-            <div class="right-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-12'" id="seccion-12-sub-titulo" class="sub-titulo">
-
-                    BOTA LINUX NEOPRENE DE 4MM
-
-                </div>
-
-                <div ng-if="mainCtrl.seccion == 'seccion-12'" id="seccion-12-detalle" class="detalle">
-
-                    Suela de caucho TR Antideslizante <br>
-
-                    Gráfica de Refuerzo <br>
-
-                    Ribeteada con Lycra <br>
-
-                    Talles: 32, 34, XS, S, M, L, XL, XXL
-
-                </div>
-
-
-
-
-
-                <div ng-if="mainCtrl.seccion == 'seccion-12'" id="seccion-12-thumbs" class="thumbs">
-
-                    <img ng-click="mainCtrl.selectImage('zapa_neoprene_01.gif')" src="img/bota_neoprene_01.gif"
-
-                         alt=""
-
-                         width="75">
-
-                    <img ng-click="mainCtrl.selectImage('Zapa_neoprene_02.gif')" src="img/bota_neoprene_02.gif"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div id="seccion-13" data-11000="transform:translate3d(100%,0%,0); "
-
-         data-12000="transform:translate3d(0%,0%,0);"
-
-         data-13000="transform:translate3d(-100%,0%,0);">
-
-        <div class="fondo" data-11000="transform:translate3d(0%,0%,0);"
-
-             data-13000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="fondo2" data-11000="transform:translate3d(70%,0%,0);"
-
-             data-13000="transform:translate3d(-100%,0%,0);"></div>
-
-        <div class="upper-container">
-
-            <img src="img/logo_seccion.png" ng-if="mainCtrl.seccion == 'seccion-13'" id="seccion-13-titulo"
-
-                 class="titulo"/>
-
-
-
-        </div>
-
-        <div class="bottom-container">
-
-            <div class="left-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-13'" id="seccion-13-imagen-main" class="imagen-main">
-
-                    <img ng-src="img/{{mainCtrl.img}}" alt="" width="527">
-
-                </div>
-
-            </div>
-
-
-
-
-
-            <div class="right-container">
-
-                <div ng-if="mainCtrl.seccion == 'seccion-13'" id="seccion-13-sub-titulo" class="sub-titulo">
-
-                    BOTA LINUX NEOPRENE DE 4MM
-
-                </div>
-
-                <div ng-if="mainCtrl.seccion == 'seccion-13'" id="seccion-13-detalle" class="detalle">
-
-                    Suela de caucho TR Antideslizante <br>
-
-                    Gráfica de Refuerzo <br>
-
-                    Ribeteada con Lycra <br>
-
-                    Talles: 32, 34, XS, S, M, L, XL, XXL
-
-                </div>
-
-
-
-
-
-                <div ng-if="mainCtrl.seccion == 'seccion-13'" id="seccion-13-thumbs" class="thumbs">
-
-                    <img ng-click="mainCtrl.selectImage('zapa_neoprene_01.gif')" src="img/bota_neoprene_01.gif"
-
-                         alt=""
-
-                         width="75">
-
-                    <img ng-click="mainCtrl.selectImage('Zapa_neoprene_02.gif')" src="img/bota_neoprene_02.gif"
-
-                         alt=""
-
-                         width="75">
-
-                    <img src="" alt="">
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-    </div>
 
 </div>
 
 
-
-<script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-<script src="bower_components/angular/angular.min.js"></script>
-
-<script src="bower_components/angular-route/angular-route.min.js"></script>
-
-<script src="bower_components/angular-animate/angular-animate.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
-
-<script src="lib/skrollr-menu.min.js"></script>
-
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-route.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-animate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-cookies.js"></script>
+<script src="https://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
+<script src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+<script src="utils/utils.js"></script>
+<script src="login.js"></script>
 <script src="app.js"></script>
-
-<script src="main_view/main_view.js"></script>
-
-
-
-
-
 </body>
-
 </html>
-

@@ -277,6 +277,15 @@ div {
   //top: 5%;
   //left: 0;
   position: static;
+  max-height: 600px;
+  height: 600px;
+
+
+  background-position: center center;
+  img{
+    max-height: 600px;
+    max-width: 527px;
+  }
 
 }
 
