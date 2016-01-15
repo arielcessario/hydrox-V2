@@ -100,14 +100,14 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
     vm.hideLoader = true;
 
     function adelante() {
-        if(vm.seccion != 'seccion-12'){
+        if (vm.seccion != 'seccion-12') {
             scrollTo(mainContainer[0].scrollLeft + mainWidth);
         }
     }
 
     function atras() {
 
-        if(vm.seccion != 'seccion-1'){
+        if (vm.seccion != 'seccion-1') {
             scrollTo(mainContainer[0].scrollLeft - mainWidth);
         }
     }
@@ -348,18 +348,18 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
                 'asunto': vm.contactoTelefono
             })
             .success(
-            function (data) {
-                vm.enviado = true;
-                $timeout(hideMessage, 3000);
-                function hideMessage() {
-                    vm.enviado = false;
-                }
+                function (data) {
+                    vm.enviado = true;
+                    $timeout(hideMessage, 3000);
+                    function hideMessage() {
+                        vm.enviado = false;
+                    }
 
-                vm.contactoNombre = '';
-                vm.contactoTelefono = '';
-                vm.contactoMail = '';
-                vm.contactoMensaje = '';
-            })
+                    vm.contactoNombre = '';
+                    vm.contactoTelefono = '';
+                    vm.contactoMail = '';
+                    vm.contactoMensaje = '';
+                })
             .error(function (data) {
 
                 vm.contactoError = true;
@@ -421,8 +421,6 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
         //})(navigator.userAgent || navigator.vendor || window.opera);
         return check;
     };
-
-
 
 
     // Si es if(vm.isMobile), significa que despu�s de ah� vienen cosas para celu.
@@ -591,7 +589,7 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
 
         if (vm.isMobile) {
 
-            console.log((mainWidth + margen) * (id + 1));
+            //console.log((mainWidth + margen) * (id + 1));
             scrollTo(((mainWidth + margen) * (id)) + ((mainWidth + margen) / 1.9));
 
 
@@ -604,7 +602,14 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
 
     }
 
+    vm.positionScrollTo = 0;
     function scrollTo(pos) {
+        vm.positionScrollTo = pos;
+        latestKnownScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function scrollRAF() {
 
         //var cantidad = pos;
         var timer = 0;
@@ -613,15 +618,15 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
 
         var is_end = false;
         var pos_actual = document.getElementById('main-container').scrollLeft;
-        var pos_next = Math.round(pos_actual + (pos / speed));
+        var pos_next = Math.round(pos_actual + (vm.positionScrollTo / speed));
 
 
         if (pos_origin == 0) {
             pos_origin = pos_actual;
         }
 
-        if ((pos_actual < pos && pos_next > pos) ||
-            (pos_actual > pos && pos_next < pos)) {
+        if ((pos_actual < vm.positionScrollTo && pos_next > vm.positionScrollTo) ||
+            (pos_actual > vm.positionScrollTo && pos_next < vm.positionScrollTo)) {
 
             //console.log('pos ' + pos_actual);
             //console.log('pos ' + pos);
@@ -634,19 +639,19 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
         //console.log(is_end);
 
         //for(var i = 0; i<cantidad/8; i++){
-        if (document.getElementById('main-container').scrollLeft != pos) {
+        if (document.getElementById('main-container').scrollLeft != vm.positionScrollTo) {
             setTimeout(function () {
                 //console.log(document.getElementById('parallax').scrollTop);
 
                 if (is_end) {
-                    document.getElementById('main-container').scrollLeft = pos;
+                    document.getElementById('main-container').scrollLeft = vm.positionScrollTo;
                 } else {
-                    if (pos < document.getElementById('main-container').scrollLeft) {
+                    if (vm.positionScrollTo < document.getElementById('main-container').scrollLeft) {
 
                         document.getElementById('main-container').scrollLeft -= Math.round(pos_origin / speed);
 
                     } else {
-                        document.getElementById('main-container').scrollLeft += Math.round(pos / speed);
+                        document.getElementById('main-container').scrollLeft += Math.round(vm.positionScrollTo / speed);
 
                     }
                 }
@@ -654,9 +659,9 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
                 //console.log(document.getElementById('parallax').scrollTop);
                 //timer += 1;
                 if (!is_end) {
-                    vm.scrollTo(pos);
+                    vm.scrollTo(vm.positionScrollTo);
                 } else {
-                    console.log(pos);
+                    console.log(vm.positionScrollTo);
                 }
             }, 1);
 
@@ -677,6 +682,33 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
         mainContainer[0].scrollLeft = mainContainer[0].scrollLeft - e.wheelDeltaY;
     });
 
+
+    window.requestAnimationFrame = window.requestAnimationFrame
+        || window.mozRequestAnimationFrame
+        || window.webkitRequestAnimationFrame
+        || window.msRequestAnimationFrame
+        || function (f) {
+            setTimeout(f, 1000 / 60)
+        };
+
+    var latestKnownScrollY = 0,
+        ticking = false;
+
+    function requestTick() {
+        if (!ticking) {
+            window.requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        ticking = false;
+
+        var currentScrollY = latestKnownScrollY;
+        scrollRAF();
+
+    }
+
     mainContainer[0].addEventListener('scroll', function () {
 
         //animate();
@@ -696,7 +728,7 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
 
 
         if (vm.isMobile) {
-            if ((mainContainer[0].scrollLeft > -1 && mainContainer[0].scrollLeft <  ((mainWidth * 1) + (-240) + (250 * 2))) && vm.seccion != 'seccion-01') {
+            if ((mainContainer[0].scrollLeft > -1 && mainContainer[0].scrollLeft < ((mainWidth * 1) + (-240) + (250 * 2))) && vm.seccion != 'seccion-01') {
                 selectScreen(1);
             }
             if ((mainContainer[0].scrollLeft > ((mainWidth * 1) + (-240) + (250 * 2)) && mainContainer[0].scrollLeft < ((mainWidth * 2) + (-240) + (250 * 2))) && vm.seccion != 'seccion-02') {
