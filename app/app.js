@@ -97,7 +97,7 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
     vm.usuarios = [];
     vm.logged = undefined;
     vm.admin = 'contacto';
-
+    vm.hideLoader = true;
 
     function adelante() {
         scrollTo(mainContainer[0].scrollLeft + mainWidth);
@@ -692,6 +692,9 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
 
 
         if (vm.isMobile) {
+            if ((mainContainer[0].scrollLeft > -1 && mainContainer[0].scrollLeft <  ((mainWidth * 1) + (-240) + (250 * 2))) && vm.seccion != 'seccion-01') {
+                selectScreen(1);
+            }
             if ((mainContainer[0].scrollLeft > ((mainWidth * 1) + (-240) + (250 * 2)) && mainContainer[0].scrollLeft < ((mainWidth * 2) + (-240) + (250 * 2))) && vm.seccion != 'seccion-02') {
                 selectScreen(2);
             }
@@ -737,6 +740,9 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
             }
 
             $scope.$apply();
+            if ((mainContainer[0].scrollLeft > -1 && mainContainer[0].scrollLeft < ((mainWidth * 1) - 200)) && vm.seccion != 'seccion-01') {
+                selectScreen(1);
+            }
 
             if ((mainContainer[0].scrollLeft > ((mainWidth * 1) - 200) && mainContainer[0].scrollLeft < ((mainWidth * 2) - 200)) && vm.seccion != 'seccion-02') {
                 selectScreen(2);
@@ -777,7 +783,10 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
         function selectScreen(id) {
             switch (id) {
                 case 1:
-
+                    vm.hideText = true;
+                    vm.openThumbs = true;
+                    vm.seccion = 'seccion-01';
+                    vm.thumbs = [];
                     break;
                 case 2:
                     vm.hideText = false;

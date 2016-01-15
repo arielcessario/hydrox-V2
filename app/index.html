@@ -8,6 +8,98 @@
 <!--[if gt IE 8]><!-->
 <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
 <head>
+    <style>
+        #loader-container{
+            position: fixed;
+            top:0;
+            left:0;
+            height: 100%;
+            width: 100%;
+            z-index: 20000;
+            background: #1C78C5;
+        }
+
+        #loader-container img{
+            position: fixed;
+            top: calc(30% + 120px);
+            left: calc(50% - 150px);
+            width: 300px;
+        }
+        #loader {
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            width: 30px;
+            height: 120px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-flow: column nowrap;
+            -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        #loader .diamond {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0 auto;
+            width: 30px;
+            height: 30px;
+            border-radius: 2px;
+            background: #fff;
+            -webkit-transform: translateY(0) rotate(45deg) scale(0);
+            transform: translateY(0) rotate(45deg) scale(0);
+            -webkit-animation: diamonds 1500ms linear infinite;
+            animation: diamonds 1500ms linear infinite;
+        }
+
+        #loader .diamond:nth-child(1) {
+            -webkit-animation-delay: -1000ms;
+            animation-delay: -1000ms;
+        }
+
+        #loader .diamond:nth-child(2) {
+            -webkit-animation-delay: -2000ms;
+            animation-delay: -2000ms;
+        }
+
+        #loader .diamond:nth-child(3) {
+            -webkit-animation-delay: -3000ms;
+            animation-delay: -3000ms;
+        }
+
+        #loader .diamond:nth-child(4) {
+            -webkit-animation-delay: -4000ms;
+            animation-delay: -4000ms;
+        }
+
+        @-webkit-keyframes diamonds {
+            50% {
+                -webkit-transform: translateY(-50px) rotate(45deg) scale(1);
+                transform: translateY(-50px) rotate(45deg) scale(1);
+            }
+            100% {
+                -webkit-transform: translateY(-100px) rotate(45deg) scale(0);
+                transform: translateY(-100px) rotate(45deg) scale(0);
+            }
+        }
+
+        @keyframes diamonds {
+            50% {
+                -webkit-transform: translateY(-50px) rotate(45deg) scale(1);
+                transform: translateY(-50px) rotate(45deg) scale(1);
+            }
+            100% {
+                -webkit-transform: translateY(-100px) rotate(45deg) scale(0);
+                transform: translateY(-100px) rotate(45deg) scale(0);
+            }
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My AngularJS App</title>
@@ -20,9 +112,18 @@
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-controller="MainController as mainCtrl">
+<div id='loader-container' ng-if="!mainCtrl.hideLoader">
+    <div id='loader'>
+        <div class='diamond'></div>
+        <div class='diamond'></div>
+        <div class='diamond'></div>
+    </div>
+    <img src="img/logo_seccion.png" alt="">
+</div>
+
 
 <div id="menu">
-    <div id="menu-mobile-buttons">
+    <div id="menu-mobile-buttons" ng-if="(mainCtrl.isMobile && mainCtrl.openMobile) || (!mainCtrl.isMobile)">
         <button class="mobile-button" ng-click="mainCtrl.scrollToMobile(1);mainCtrl.openMobile = false;">Zapatillas
         </button>
         <button class="mobile-button" ng-click="mainCtrl.scrollToMobile(2);mainCtrl.openMobile = false;">Bota</button>
@@ -41,7 +142,7 @@
         <button class="mobile-button" ng-click="mainCtrl.scrollToMobile(10);mainCtrl.openMobile = false;">Miton</button>
     </div>
 
-    <div id="menu-thumbs-buttons">
+    <div id="menu-thumbs-buttons" ng-if="(mainCtrl.isMobile && mainCtrl.openThumbs) || (!mainCtrl.isMobile)">
         <img ng-repeat="thumb in mainCtrl.thumbs"
              ng-click="mainCtrl.selectImage(thumb.big, thumb.img); mainCtrl.openThumbs = false;"
              ng-src="{{'img/'+thumb.small}}"
@@ -64,7 +165,7 @@
            ng-mouseover="mainCtrl.openMobile = false;" class="hi-icon">
         </a>
 
-               <a href="" id="button-centro" ng-click="mainCtrl.hideText = !mainCtrl.hideText" class="hi-icon">
+        <a href="" id="button-centro" ng-click="mainCtrl.hideText = !mainCtrl.hideText" class="hi-icon">
         </a>
 
         <!--<div id="menu-mobile-spacer"></div>-->
@@ -90,11 +191,11 @@
          class="titulo"/>
 
     <div class="contenedor-upper">
-    <button class="boton-contacto" ng-click="mainCtrl.goToAdmin('contacto'); mainCtrl.openContact = false;">
-    </button>
-    <button class="boton-ingreso" ng-click="mainCtrl.goToAdmin('admin');mainCtrl.openContact = false;">
-    </button>
-</div>
+        <button class="boton-contacto" ng-click="mainCtrl.goToAdmin('contacto'); mainCtrl.openContact = false;">
+        </button>
+        <button class="boton-ingreso" ng-click="mainCtrl.goToAdmin('admin');mainCtrl.openContact = false;">
+        </button>
+    </div>
 </div>
 
 <div ng-if="!mainCtrl.isMobile" ng-click="mainCtrl.adelante();" id="nav-right"></div>
