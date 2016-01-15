@@ -100,12 +100,16 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
     vm.hideLoader = true;
 
     function adelante() {
-        scrollTo(mainContainer[0].scrollLeft + mainWidth);
+        if(vm.seccion != 'seccion-12'){
+            scrollTo(mainContainer[0].scrollLeft + mainWidth);
+        }
     }
 
     function atras() {
 
-        scrollTo(mainContainer[0].scrollLeft - mainWidth);
+        if(vm.seccion != 'seccion-1'){
+            scrollTo(mainContainer[0].scrollLeft - mainWidth);
+        }
     }
 
     function getDescargas() {
