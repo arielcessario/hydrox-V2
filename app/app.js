@@ -130,7 +130,7 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
 
 
     function goToAdmin(screen) {
-        scrollToMobile(11);
+        scrollToMobile(11.3);
         vm.admin = screen;
     }
 
@@ -726,7 +726,6 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
                 selectScreen(11);
             }
             if ((mainContainer[0].scrollLeft > ((mainWidth * 11) + (-240) + (250 * 11)) && mainContainer[0].scrollLeft < ((mainWidth * 12) + (-240) + (250 * 12))) && vm.seccion != 'seccion-12') {
-                console.log('entr');
                 selectScreen(12);
             }
         } else {
@@ -911,6 +910,11 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
                     vm.hideText = false;
                     vm.thumbs = [];
                     vm.seccion = 'seccion-12';
+
+                    var elem = angular.element(document.querySelector('#seccion-12'));
+
+                    //elem[0].style.position = 'fixed';
+                    //elem[0].style.left = 0+'px';
 
                     if (!store.get('jwt')) {
                         vm.isDescargas = false;
