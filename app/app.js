@@ -23,8 +23,8 @@ angular.module('myApp', [
     .controller('MainController', MainController);
 
 
-MainController.$inject = ['$scope', '$timeout', '$http', 'store', 'LoginService', 'AcUtilsService', '$location', 'jwtHelper'];
-function MainController($scope, $timeout, $http, store, LoginService, AcUtilsService, $location, jwtHelper) {
+MainController.$inject = ['$scope', '$timeout', '$http', 'store', 'LoginService', 'AcUtils', '$location', 'jwtHelper'];
+function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $location, jwtHelper) {
     var vm = this;
 
     vm.seccion = 'seccion-01';
@@ -297,19 +297,19 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
         var conErrores = false;
 
 
-        if (vm.password.trim().length == 0) {
-            AcUtilsService.validations('password', 'El password es obligatorio');
-            conErrores = true;
-        }
-
-        if (!AcUtilsService.validateEmail(vm.mail)) {
-            AcUtilsService.validations('mail', 'El mail es incorrecto');
-            conErrores = true;
-        }
-
-        if (conErrores) {
-            return;
-        }
+        //if (vm.password.trim().length == 0) {
+        //    AcUtilsService.validations('password', 'El password es obligatorio');
+        //    conErrores = true;
+        //}
+        //
+        //if (!AcUtilsService.validateEmail(vm.mail)) {
+        //    AcUtilsService.validations('mail', 'El mail es incorrecto');
+        //    conErrores = true;
+        //}
+        //
+        //if (conErrores) {
+        //    return;
+        //}
 
         LoginService.login(vm.mail, vm.password, function (data) {
             console.log(data);

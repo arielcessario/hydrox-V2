@@ -538,22 +538,26 @@
                         </div>
                     </div>
 
-                    <div id="ingreso" ng-if="mainCtrl.logged == undefined && mainCtrl.admin == 'admin'">
+                    <div id="ingreso" form-id="login-main" ng-if="mainCtrl.logged == undefined && mainCtrl.admin == 'admin'">
 
                         <div class="form-titulo">INGRESO</div>
 
-                        <div class="form-input">
+                        <div class="form-input" >
                             <span>MAIL</span>
-                            <input id="mail" type="email" ng-model="mainCtrl.mail"
+                            <input
+                                    ac-validator is-mail="El formato de mail de es incorrecto"
+                                    id="mail" type="email" ng-model="mainCtrl.mail"
                                    ng-keypress="mainCtrl.loginPrev($event);">
                         </div>
                         <div class="form-input">
                             <span>CONTRASEÑA</span>
-                            <input id="password" type="password" ng-model="mainCtrl.password"
+                            <input
+                                    ac-validator is-required="Debe ingresar un password"
+                                    id="password" type="password" ng-model="mainCtrl.password"
                                    ng-keypress="mainCtrl.loginPrev($event);">
                         </div>
                         <div class="administracion-button-bar">
-                            <button ng-click="mainCtrl.login();">OK</button>
+                            <button ac-validator ng-click="mainCtrl.login();">OK</button>
                             <button ng-click="mainCtrl.nuevoUsuario();">NUEVO USUARIO</button>
                             <button ng-click="mainCtrl.recuperarPassword();">RECUPERAR CONTRASEÑA</button>
                         </div>
@@ -629,8 +633,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-cookies.js"></script>
 <script src="https://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
 <script src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
-<script src="utils/utils.js"></script>
+<script src="bower_components/ac-angular-utils/ac-utils.min.js"></script>
 <script src="login.js"></script>
 <script src="app.js"></script>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-56571440-4', 'auto');
+    ga('send', 'pageview');
+
+</script>
 </body>
 </html>
