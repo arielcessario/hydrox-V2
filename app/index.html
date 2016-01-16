@@ -9,22 +9,23 @@
 <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
 <head>
     <style>
-        #loader-container{
+        #loader-container {
             position: fixed;
-            top:0;
-            left:0;
+            top: 0;
+            left: 0;
             height: 100%;
             width: 100%;
             z-index: 20000;
             background: #1C78C5;
         }
 
-        #loader-container img{
+        #loader-container img {
             position: fixed;
             top: calc(30% + 120px);
             left: calc(50% - 150px);
             width: 300px;
         }
+
         #loader {
             position: fixed;
             top: 30%;
@@ -102,8 +103,11 @@
     </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My AngularJS App</title>
-    <meta name="description" content="">
+    <title>Hydrox</title>
+    <meta name="description" content="Artículos de neoprene">
+    <meta name="keywords"
+          content="neoprene,neopreno,artículos de neoprene,bota de neoprene,calzado de neorprene,zapatilla de neoprene,traje de neoprene,lycra,kayak,surf,bota de surf,kite surf,kite,kayak surf,kayak rafting,windsurf,kayak fishing">
+    <meta name="author" content="Juan Lennox">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
@@ -538,23 +542,24 @@
                         </div>
                     </div>
 
-                    <div id="ingreso" form-id="login-main" ng-if="mainCtrl.logged == undefined && mainCtrl.admin == 'admin'">
+                    <div id="ingreso" form-id="login-main"
+                         ng-if="mainCtrl.logged == undefined && mainCtrl.admin == 'admin'">
 
                         <div class="form-titulo">INGRESO</div>
 
-                        <div class="form-input" >
+                        <div class="form-input">
                             <span>MAIL</span>
                             <input
                                     ac-validator is-mail="El formato de mail de es incorrecto"
                                     id="mail" type="email" ng-model="mainCtrl.mail"
-                                   ng-keypress="mainCtrl.loginPrev($event);">
+                                    ng-keypress="mainCtrl.loginPrev($event);">
                         </div>
                         <div class="form-input">
                             <span>CONTRASEÑA</span>
                             <input
                                     ac-validator is-required="Debe ingresar un password"
                                     id="password" type="password" ng-model="mainCtrl.password"
-                                   ng-keypress="mainCtrl.loginPrev($event);">
+                                    ng-keypress="mainCtrl.loginPrev($event);">
                         </div>
                         <div class="administracion-button-bar">
                             <button ac-validator ng-click="mainCtrl.login();">OK</button>
@@ -638,10 +643,17 @@
 <script src="app.js"></script>
 
 <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', 'UA-56571440-4', 'auto');
     ga('send', 'pageview');
