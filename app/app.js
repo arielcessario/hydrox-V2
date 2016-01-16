@@ -98,6 +98,22 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
     vm.logged = undefined;
     vm.admin = 'contacto';
     vm.hideLoader = true;
+    vm.supported_browser = true;
+
+    var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+    var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    var is_edge = navigator.userAgent.toLowerCase().indexOf('edge') > -1;
+    var is_trident = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
+
+    // Verifico si es algún navegador soportado o no
+    vm.supported_browser = (is_chrome || is_firefox) && !is_edge && !is_trident;
+
+    if(!vm.supported_browser){
+        console.log('Browser not supported');
+        alert('Esta página se encuentra optimizada para Chrome o Firefox, recomendamos actualizar a alguno de estos exploradores');
+    }else{
+        console.log('Browser is supported');
+    }
 
     function adelante() {
         if (vm.seccion != 'seccion-12') {
