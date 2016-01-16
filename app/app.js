@@ -316,6 +316,8 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
             if (data != -1) {
                 //LoginState.isLogged = true;
                 store.set('jwt', data);
+
+                console.log(jwtHelper.decodeToken(store.get('jwt')).data.rol);
                 if (jwtHelper.decodeToken(store.get('jwt')).data.rol == 1) {
                     LoginService.getClientes(function (data) {
                         vm.usuarios = data;
@@ -327,7 +329,7 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtilsSer
                 vm.logged = jwtHelper.decodeToken(store.get('jwt'));
                 vm.admin = 'admin';
 
-                getFotos();
+                //getFotos();
                 getDescargas();
             } else {
                 //LoginState.isLogged = false;
