@@ -874,10 +874,10 @@ textarea:focus {
   font-family: 'Catamaran', sans-serif;
   font-weight: bolder;
   color: darkorange;
-  line-height: 60px;
+  line-height: 55px;
   text-align: left;
   margin-left: 20px;
-  font-size: 62px;
+  font-size: 55px;
   text-transform: uppercase;
   position: static;
 }
@@ -896,11 +896,11 @@ textarea:focus {
 .detalle {
   text-align: left;
   width: 600px;
-  line-height: 37px;
+  line-height: 32px;
   margin: 20px;
   min-height: 150px;
   font-family: 'Catamaran', sans-serif;
-  font-size: 35px;
+  font-size: 30px;
   font-variant: small-caps;
   color: white;
   position: static;
