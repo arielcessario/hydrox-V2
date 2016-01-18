@@ -678,7 +678,10 @@ textarea:focus {
   }
 
   iframe{
-    background-color: blue;
+    //background-color: blue;
+    img{
+      background-color: blue;
+    }
   }
 
 }
