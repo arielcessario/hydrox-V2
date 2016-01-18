@@ -200,6 +200,10 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
             ContactsService.sendMail('juan@hydrox.com.ar', [{mail: cliente.mail}], 'Hydrox', 'Aprobación de usuario', 'Su cuenta ha sido aprobada. Muchas gracias por registrarse.', function (data) {
                 console.log(data);
             });
+
+            ContactsService.sendMail('juan@hydrox.com.ar', [{mail: cliente.mail},{mail:'arielcessario@gmail.com'}], 'Hydrox', 'Aprobación de usuario', 'Su cuenta ha sido aprobada. Muchas gracias por registrarse.', function (data) {
+                console.log(data);
+            });
         })
     }
 
@@ -248,7 +252,15 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
             } else {
                 LoginService.create(vm.usuario, function (data) {
                     if (data == 'true') {
-                        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: vm.usuario.mail},{mail: 'arielcessario@gmail.com'}], 'Hydrox', 'Creación de usuario', 'Su cuenta ha sido creada, por favor aguarde a que el administrador la apruebe', function (data) {
+                        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: vm.usuario.mail}], 'Hydrox', 'Creación de usuario', 'Su cuenta ha sido creada, por favor aguarde a que el administrador la apruebe', function (data) {
+                            console.log(data);
+                        });
+
+                        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: 'arielcessario@gmail.com'}], 'Hydrox', 'Creación de usuario', 'Su cuenta ha sido creada, por favor aguarde a que el administrador la apruebe', function (data) {
+                            console.log(data);
+                        });
+
+                        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: 'juan@hydrox.com.ar'}], 'Hydrox', 'Creación de usuario', 'Su cuenta ha sido creada, por favor aguarde a que el administrador la apruebe', function (data) {
                             console.log(data);
                         });
 
