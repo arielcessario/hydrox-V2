@@ -648,7 +648,7 @@ textarea:focus {
 .upper-container {
 
   position: fixed;
-  top: 0;
+  top: 8px;
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -1556,6 +1556,11 @@ input {
   -webkit-animation: sonarEffect 1.3s ease-out 75ms;
   -moz-animation: sonarEffect 1.3s ease-out 75ms;
   animation: sonarEffect 1.3s ease-out 75ms;
+}
+
+.img-like{
+  margin-top: 30px;
+
 }
 
 @-webkit-keyframes sonarEffect {
