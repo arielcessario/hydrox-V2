@@ -671,6 +671,7 @@ textarea:focus {
   position: fixed;
   top: 90px;
   left: calc(50% - 100px);
+  display: flex;
   @media(max-width: 550px) {
     top: 5px;
     left: 63%;
