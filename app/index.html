@@ -612,7 +612,7 @@
 
                     </div>
 
-                    <div id="clientes-listado" ng-if="mainCtrl.logged.data.rol == 1">
+                    <div id="clientes-listado" ng-if="mainCtrl.logged.data.rol == 1 && mainCtrl.admin != 'contacto'">
 
                         <table>
                             <tr ng-repeat="usuario in mainCtrl.usuarios">
