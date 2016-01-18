@@ -372,7 +372,7 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
                 getDescargas();
             } else {
                 //LoginState.isLogged = false;
-                AcUtilsService.validations('password', 'Mail o password incorrectos');
+                AcUtils.showMessage('error', 'Mail o password incorrectos');
             }
         });
     }
