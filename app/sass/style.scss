@@ -83,6 +83,18 @@ textarea:focus {
   font-size: 14px;
 }
 
+.pluginButtonLabel{
+  visibility: collapse !important;
+  display: none !important;
+}
+.pluginConnectButtonLayoutRoot{
+  .pluginConnectButton{
+    span{
+
+    }
+  }
+}
+
 @keyframes show-error-anim {
   0% {
     opacity: 0;

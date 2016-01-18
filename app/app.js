@@ -116,6 +116,28 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
         console.log('Browser is supported');
     }
 
+
+    ContactsService.facebookInit();
+    //var checkExist = setInterval(function() {
+    //
+    //    var elem = document.getElementsByClassName('fb_iframe_widget');
+    //    if (elem.length) {
+    //        console.log("Exists!");
+    //        var x = elem[0].firstChild.firstChild;
+    //        var innerDoc = x.contentDocument || x.contentWindow.document;
+    //        clearInterval(checkExist);
+    //        console.log(innerDoc);
+    //
+    //        //var y = innerDoc;
+    //        //if (y.document) y = y.document;
+    //        //console.log(y);
+    //        //y.open();
+    //        //y.write( document.getElementById('page').innerHTML );
+    //        //y.close();
+    //    }
+    //}, 100);
+
+
     function adelante() {
         if (vm.seccion != 'seccion-12') {
             scrollTo(mainContainer[0].scrollLeft + mainWidth);
@@ -201,7 +223,7 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
                 console.log(data);
             });
 
-            ContactsService.sendMail('juan@hydrox.com.ar', [{mail: cliente.mail},{mail:'arielcessario@gmail.com'}], 'Hydrox', 'Aprobación de usuario', 'Su cuenta ha sido aprobada. Muchas gracias por registrarse.', function (data) {
+            ContactsService.sendMail('juan@hydrox.com.ar', [{mail: cliente.mail}, {mail: 'arielcessario@gmail.com'}], 'Hydrox', 'Aprobación de usuario', 'Su cuenta ha sido aprobada. Muchas gracias por registrarse.', function (data) {
                 console.log(data);
             });
         })
@@ -240,7 +262,6 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
     function saveUsuario() {
 
 
-
         vm.usuario.telefono = vm.usuario.mail;
         vm.usuario.apellido = vm.usuario.mail;
         vm.usuario.direccion = vm.usuario.mail;
@@ -264,8 +285,8 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
                             console.log(data);
                         });
 
-                        vm.usuario = {mail:''};
-                        AcUtils.showMessage('error','El usuario ha sido creado, aguarde la confirmación. Gracias.');
+                        vm.usuario = {mail: ''};
+                        AcUtils.showMessage('error', 'El usuario ha sido creado, aguarde la confirmación. Gracias.');
 
                         //LoginService.login(vm.usuario.mail, vm.usuario.password, function (data) {
                         //    if (data != -1) {

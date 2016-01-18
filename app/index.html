@@ -195,6 +195,9 @@
          class="titulo"/>
 
     <div class="contenedor-upper">
+        <div class="fb-share-button boton-contacto"
+             data-href="https://developers.facebook.com/docs/plugins/" data-layout="icon"></div>
+
         <button class="boton-contacto" ng-click="mainCtrl.goToAdmin('contacto'); mainCtrl.openContact = false;">
         </button>
         <button class="boton-ingreso" ng-click="mainCtrl.goToAdmin('admin');mainCtrl.openContact = false;">
@@ -522,17 +525,21 @@
                         </div>
                         <div ng-if="mainCtrl.isMobile" style="height: 300px;"></div>
                     </div>
-                    <div form-id='nuevo-usuario' id="nuevo-usuario" ng-if="mainCtrl.logged == undefined && mainCtrl.admin == 'nuevo'">
+                    <div form-id='nuevo-usuario' id="nuevo-usuario"
+                         ng-if="mainCtrl.logged == undefined && mainCtrl.admin == 'nuevo'">
                         <div class="form-titulo">NUEVO USUARIO</div>
                         <div class="nuevo-usuario-inputs">
                             <div class="form-input"><span>Nombre</span>
-                                <input ac-validator is-required="El nombre es requerido" type="text" id="nombre" ng-model="mainCtrl.usuario.nombre">
+                                <input ac-validator is-required="El nombre es requerido" type="text" id="nombre"
+                                       ng-model="mainCtrl.usuario.nombre">
                             </div>
                             <div class="form-input"><span>MAIL</span>
-                                <input  ac-validator is-mail="El mail es requerido" type="email" id="email" ng-model="mainCtrl.usuario.mail">
+                                <input ac-validator is-mail="El mail es requerido" type="email" id="email"
+                                       ng-model="mainCtrl.usuario.mail">
                             </div>
                             <div class="form-input"><span>CONTRASEÑA</span>
-                                <input  ac-validator is-required="El password es requerido" type="password" id="password" ng-model="mainCtrl.usuario.password">
+                                <input ac-validator is-required="El password es requerido" type="password" id="password"
+                                       ng-model="mainCtrl.usuario.password">
                             </div>
 
                         </div>
