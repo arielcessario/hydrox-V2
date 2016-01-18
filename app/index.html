@@ -522,22 +522,22 @@
                         </div>
                         <div ng-if="mainCtrl.isMobile" style="height: 300px;"></div>
                     </div>
-                    <div id="nuevo-usuario" ng-if="mainCtrl.logged == undefined && mainCtrl.admin == 'nuevo'">
+                    <div form-id='nuevo-usuario' id="nuevo-usuario" ng-if="mainCtrl.logged == undefined && mainCtrl.admin == 'nuevo'">
                         <div class="form-titulo">NUEVO USUARIO</div>
                         <div class="nuevo-usuario-inputs">
                             <div class="form-input"><span>Nombre</span>
-                                <input type="text" id="nombre" ng-model="mainCtrl.usuario.nombre">
+                                <input ac-validator is-required="El nombre es requerido" type="text" id="nombre" ng-model="mainCtrl.usuario.nombre">
                             </div>
                             <div class="form-input"><span>MAIL</span>
-                                <input type="email" id="email" ng-model="mainCtrl.usuario.mail">
+                                <input  ac-validator is-mail="El mail es requerido" type="email" id="email" ng-model="mainCtrl.usuario.mail">
                             </div>
                             <div class="form-input"><span>CONTRASEÑA</span>
-                                <input type="password" id="password" ng-model="mainCtrl.usuario.password">
+                                <input  ac-validator is-required="El password es requerido" type="password" id="password" ng-model="mainCtrl.usuario.password">
                             </div>
 
                         </div>
                         <div class="nuevo-usuario-button-bar">
-                            <button ng-click="mainCtrl.saveUsuario();">GUARDAR</button>
+                            <button ac-validator ng-click="mainCtrl.saveUsuario();">GUARDAR</button>
                             <button ng-click="mainCtrl.admin = 'admin'">CANCELAR</button>
                         </div>
                     </div>
@@ -639,6 +639,7 @@
 <script src="https://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
 <script src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
 <script src="bower_components/ac-angular-utils/ac-utils.min.js"></script>
+<script src="ac-angular-contacts/ac-contacts.js"></script>
 <script src="login.js"></script>
 <script src="app.js"></script>
 

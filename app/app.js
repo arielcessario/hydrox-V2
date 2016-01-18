@@ -6,6 +6,7 @@ angular.module('myApp', [
     'ngAnimate',
     'ngCookies',
     'acUtils',
+    'acContacts',
     'angular-storage',
     'angular-jwt',
     'login.login'
@@ -23,8 +24,8 @@ angular.module('myApp', [
     .controller('MainController', MainController);
 
 
-MainController.$inject = ['$scope', '$timeout', '$http', 'store', 'LoginService', 'AcUtils', '$location', 'jwtHelper'];
-function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $location, jwtHelper) {
+MainController.$inject = ['$scope', '$timeout', '$http', 'store', 'LoginService', 'AcUtils', '$location', 'jwtHelper', 'ContactsService'];
+function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $location, jwtHelper, ContactsService) {
     var vm = this;
 
     vm.seccion = 'seccion-01';
@@ -108,10 +109,10 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
     // Verifico si es algún navegador soportado o no
     vm.supported_browser = (is_chrome || is_firefox) && !is_edge && !is_trident;
 
-    if(!vm.supported_browser){
+    if (!vm.supported_browser) {
         console.log('Browser not supported');
         alert('Esta página se encuentra optimizada para Chrome o Firefox, recomendamos actualizar a alguno de estos exploradores');
-    }else{
+    } else {
         console.log('Browser is supported');
     }
 
@@ -233,38 +234,22 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
 
     function saveUsuario() {
 
-        var conErrores = false;
-
-
-        if (vm.usuario.nombre.trim().length == 0) {
-            AcUtilsService.validations('nombre', 'El nombre es obligatorio');
-            conErrores = true;
-        }
-
-        if (vm.usuario.password.trim().length == 0) {
-            AcUtilsService.validations('password', 'El password es obligatorio');
-            conErrores = true;
-        }
-
-        if (!AcUtilsService.validateEmail(vm.usuario.mail)) {
-            AcUtilsService.validations('email', 'El mail es incorrecto');
-            conErrores = true;
-        }
 
 
         vm.usuario.telefono = vm.usuario.mail;
         vm.usuario.apellido = vm.usuario.mail;
         vm.usuario.direccion = vm.usuario.mail;
-        if (conErrores) {
-            return;
-        }
+
         LoginService.existeCliente(vm.usuario.mail, function (data) {
 
             if (data == 'true') {
-                AcUtilsService.validations('email', 'El usuario ya existe');
+                AcUtils.showMessage('error', 'El usuario ya existe');
             } else {
                 LoginService.create(vm.usuario, function (data) {
                     if (data == 'true') {
+                        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: vm.usuario.mail},{mail: 'arielcessario@gmail.com'}], 'Hydrox', 'Creación de usuario', 'Su cuenta ha sido creada, por favor aguarde a que el administrador la apruebe', function (data) {
+                            console.log(data);
+                        });
                         LoginService.login(vm.usuario.mail, vm.usuario.password, function (data) {
                             if (data != -1) {
                                 store.set('jwt', data);
