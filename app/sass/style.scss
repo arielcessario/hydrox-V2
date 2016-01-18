@@ -78,18 +78,19 @@ textarea:focus {
   padding: 10px;
 }
 
-.error-message{
+.error-message {
   position: absolute;
   font-size: 14px;
 }
 
-.pluginButtonLabel{
+.pluginButtonLabel {
   visibility: collapse !important;
   display: none !important;
 }
-.pluginConnectButtonLayoutRoot{
-  .pluginConnectButton{
-    span{
+
+.pluginConnectButtonLayoutRoot {
+  .pluginConnectButton {
+    span {
 
     }
   }
@@ -99,7 +100,7 @@ textarea:focus {
   0% {
     opacity: 0;
   }
-  25%{
+  25% {
     opacity: 1;
   }
   75% {
@@ -667,6 +668,28 @@ textarea:focus {
 
 }
 
+#social-container {
+  position: fixed;
+  height: 80px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: calc(50% - 100px);
+  top: -40px;
+  -webkit-transition: top .4s;
+  -moz-transition: top .4s;
+  -ms-transition: top .4s;
+  -o-transition: top .4s;
+  transition: top .4s;
+  z-index: 1000;
+}
+
+#social-container:hover {
+  top: 0;
+}
+
 .contenedor-upper {
   position: fixed;
   top: 90px;
@@ -677,9 +700,9 @@ textarea:focus {
     left: 63%;
   }
 
-  iframe{
+  iframe {
     //background-color: blue;
-    img{
+    img {
       background-color: blue;
     }
   }
