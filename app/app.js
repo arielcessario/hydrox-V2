@@ -193,12 +193,13 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
 
 
     function activarUsuario(cliente) {
-        console.log(cliente);
 
         cliente.status = (cliente.status == 0) ? 1 : 0;
 
         LoginService.updateCliente(cliente, function (data) {
-            console.log(data);
+            ContactsService.sendMail('juan@hydrox.com.ar', [{mail: cliente.mail}], 'Hydrox', 'Aprobación de usuario', 'Su cuenta ha sido aprobada. Muchas gracias por registrarse.', function (data) {
+                console.log(data);
+            });
         })
     }
 
@@ -250,13 +251,17 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
                         ContactsService.sendMail('juan@hydrox.com.ar', [{mail: vm.usuario.mail},{mail: 'arielcessario@gmail.com'}], 'Hydrox', 'Creación de usuario', 'Su cuenta ha sido creada, por favor aguarde a que el administrador la apruebe', function (data) {
                             console.log(data);
                         });
-                        LoginService.login(vm.usuario.mail, vm.usuario.password, function (data) {
-                            if (data != -1) {
-                                store.set('jwt', data);
-                                $location.path('/');
-                            } else {
-                            }
-                        });
+
+                        vm.usuario = {mail:''};
+                        AcUtils.showMessage('error','El usuario ha sido creado, aguarde la confirmación. Gracias.');
+
+                        //LoginService.login(vm.usuario.mail, vm.usuario.password, function (data) {
+                        //    if (data != -1) {
+                        //        store.set('jwt', data);
+                        //        $location.path('/');
+                        //    } else {
+                        //    }
+                        //});
 
                     }
                 });
