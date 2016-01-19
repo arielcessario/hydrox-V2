@@ -3,7 +3,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 @import url(https://fonts.googleapis.com/css?family=Catamaran:400,900);
-/* line 5, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,45 +25,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -176,7 +176,7 @@ textarea:focus {
   vertical-align: middle;
   box-shadow: 0px 0px 5px 0px black;
   font-family: 'Catamaran', sans-serif;
-  background-color: #fcbc4e;
+  background-color: darkorange;
   font-size: 20px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -772,7 +772,7 @@ textarea:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  left: calc(50% - 100px);
+  left: calc(47.5% - 100px);
   top: -40px;
   -webkit-transition: top .4s;
   -moz-transition: top .4s;
@@ -784,7 +784,7 @@ textarea:focus {
 
 /* line 689, ../sass/style.scss */
 #social-container:hover {
-  top: 0;
+  top: 5px;
 }
 
 /* line 693, ../sass/style.scss */
@@ -1460,8 +1460,9 @@ textarea:focus {
   align-items: center;
   opacity: 0;
   overflow-x: auto;
+  padding-bottom: 150px;
 }
-/* line 1286, ../sass/style.scss */
+/* line 1287, ../sass/style.scss */
 #seccion-12 #form select {
   color: black;
   width: 100%;
@@ -1471,50 +1472,51 @@ textarea:focus {
   padding: 5px;
   font-family: 'Catamaran', sans-serif;
 }
-/* line 1296, ../sass/style.scss */
+/* line 1297, ../sass/style.scss */
 #seccion-12 #form option {
   color: black;
 }
-/* line 1300, ../sass/style.scss */
+/* line 1301, ../sass/style.scss */
 #seccion-12 #form .button-activar {
   height: 20px;
   width: 20px;
+  margin: 5px;
   background-color: red;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
 }
-/* line 1309, ../sass/style.scss */
+/* line 1311, ../sass/style.scss */
 #seccion-12 #form .button-activar-activado {
   background-color: green;
 }
-/* line 1313, ../sass/style.scss */
+/* line 1315, ../sass/style.scss */
 #seccion-12 #form #contacto, #seccion-12 #form #nuevo-usuario, #seccion-12 #form #ingreso, #seccion-12 #form #catalogo {
   margin-top: 140px;
   max-width: 90%;
 }
 @media (max-width: 700px) {
-  /* line 1313, ../sass/style.scss */
+  /* line 1315, ../sass/style.scss */
   #seccion-12 #form #contacto, #seccion-12 #form #nuevo-usuario, #seccion-12 #form #ingreso, #seccion-12 #form #catalogo {
     margin-top: 80px;
     max-width: 50%;
   }
 }
-/* line 1321, ../sass/style.scss */
+/* line 1323, ../sass/style.scss */
 #seccion-12 #form #contacto #boton-ok, #seccion-12 #form #nuevo-usuario #boton-ok, #seccion-12 #form #ingreso #boton-ok, #seccion-12 #form #catalogo #boton-ok {
   background: transparent url("../img/boton-ok.png") 50% 50% repeat;
   width: 30px;
   height: 30px;
   border: none;
 }
-/* line 1330, ../sass/style.scss */
+/* line 1332, ../sass/style.scss */
 #seccion-12 #form #contacto .form-titulo, #seccion-12 #form #nuevo-usuario .form-titulo, #seccion-12 #form #ingreso .form-titulo, #seccion-12 #form #catalogo .form-titulo {
   font-family: 'Catamaran', sans-serif;
   font-size: 60px;
   font-weight: bolder;
   margin-top: 40px;
 }
-/* line 1337, ../sass/style.scss */
+/* line 1339, ../sass/style.scss */
 #seccion-12 #form #contacto .form-titulo2, #seccion-12 #form #nuevo-usuario .form-titulo2, #seccion-12 #form #ingreso .form-titulo2, #seccion-12 #form #catalogo .form-titulo2 {
   font-family: 'Catamaran', sans-serif;
   font-size: 35px;
@@ -1523,13 +1525,13 @@ textarea:focus {
   margin-bottom: 20px;
   margin-top: 15px;
 }
-/* line 1347, ../sass/style.scss */
+/* line 1349, ../sass/style.scss */
 #seccion-12 #form #contacto .form-input, #seccion-12 #form #nuevo-usuario .form-input, #seccion-12 #form #ingreso .form-input, #seccion-12 #form #catalogo .form-input {
   display: flex;
   flex-direction: row;
   margin: 10px 0px 10px 0px;
 }
-/* line 1351, ../sass/style.scss */
+/* line 1353, ../sass/style.scss */
 #seccion-12 #form #contacto .form-input input, #seccion-12 #form #nuevo-usuario .form-input input, #seccion-12 #form #ingreso .form-input input, #seccion-12 #form #catalogo .form-input input {
   font-size: 14px;
   height: 25px;
@@ -1542,20 +1544,20 @@ textarea:focus {
   color: black;
   font-weight: bolder;
 }
-/* line 1363, ../sass/style.scss */
+/* line 1365, ../sass/style.scss */
 #seccion-12 #form #contacto .form-input span, #seccion-12 #form #nuevo-usuario .form-input span, #seccion-12 #form #ingreso .form-input span, #seccion-12 #form #catalogo .form-input span {
   font-family: 'Catamaran', sans-serif;
   font-size: 25px;
   margin-right: 5px;
   color: darkorange;
 }
-/* line 1371, ../sass/style.scss */
+/* line 1373, ../sass/style.scss */
 #seccion-12 #form #contacto .form-textarea, #seccion-12 #form #nuevo-usuario .form-textarea, #seccion-12 #form #ingreso .form-textarea, #seccion-12 #form #catalogo .form-textarea {
   display: flex;
   flex-direction: column;
   margin: 10px 0px 5px 0px;
 }
-/* line 1375, ../sass/style.scss */
+/* line 1377, ../sass/style.scss */
 #seccion-12 #form #contacto .form-textarea textarea, #seccion-12 #form #nuevo-usuario .form-textarea textarea, #seccion-12 #form #ingreso .form-textarea textarea, #seccion-12 #form #catalogo .form-textarea textarea {
   -webkit-border-radius: 10px;
   min-height: 150px;
@@ -1563,14 +1565,20 @@ textarea:focus {
   border-radius: 10px;
   color: black;
 }
-/* line 1382, ../sass/style.scss */
+/* line 1384, ../sass/style.scss */
 #seccion-12 #form #contacto .form-textarea span, #seccion-12 #form #nuevo-usuario .form-textarea span, #seccion-12 #form #ingreso .form-textarea span, #seccion-12 #form #catalogo .form-textarea span {
   font-family: 'Catamaran', sans-serif;
   font-size: 25px;
   color: darkorange;
 }
 
-/* line 1392, ../sass/style.scss */
+/* line 1395, ../sass/style.scss */
+#clientes-listado {
+  width: 350px;
+  padding: 30px;
+}
+
+/* line 1401, ../sass/style.scss */
 .administracion-button-bar button,
 #catalogo button,
 #form button,
@@ -1596,7 +1604,7 @@ textarea:focus {
   margin-right: 5px;
 }
 
-/* line 1417, ../sass/style.scss */
+/* line 1426, ../sass/style.scss */
 input {
   font-family: 'Catamaran', sans-serif;
   font-size: 14px;
@@ -1604,7 +1612,7 @@ input {
   color: #ff3e17;
 }
 
-/* line 1425, ../sass/style.scss */
+/* line 1434, ../sass/style.scss */
 .administracion-button-bar button:hover,
 #catalogo button:hover,
 #form button:hover,
@@ -1617,7 +1625,7 @@ input {
   transition: all .3s ease-in-out;
 }
 
-/* line 1438, ../sass/style.scss */
+/* line 1447, ../sass/style.scss */
 .form-visible-remove,
 .contenedor-inicio-visible-remove,
 .contenedor-inicio-visible-remove {
@@ -1626,7 +1634,7 @@ input {
   animation: form-hide .8s;
 }
 
-/* line 1446, ../sass/style.scss */
+/* line 1455, ../sass/style.scss */
 .form-visible,
 .contenedor-inicio-visible {
   -webkit-animation: form-show .8s;
@@ -1635,14 +1643,14 @@ input {
   opacity: 1 !important;
 }
 
-/* line 1454, ../sass/style.scss */
+/* line 1463, ../sass/style.scss */
 .form-visible-remove {
   -webkit-animation: form-hide .8s;
   -o-animation: form-hide .8s;
   animation: form-hide .8s;
 }
 
-/* line 1460, ../sass/style.scss */
+/* line 1469, ../sass/style.scss */
 .form-visible {
   -webkit-animation: form-show .8s;
   -o-animation: form-show .8s;
@@ -1674,14 +1682,14 @@ input {
     opacity: 0;
   }
 }
-/* line 1494, ../sass/style.scss */
+/* line 1503, ../sass/style.scss */
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 1500, ../sass/style.scss */
+/* line 1509, ../sass/style.scss */
 .hi-icon {
   display: inline-block;
   font-size: 0px;
@@ -1700,7 +1708,7 @@ input {
   transition: transform ease-out 0.1s, background 0.2s;
 }
 
-/* line 1518, ../sass/style.scss */
+/* line 1527, ../sass/style.scss */
 .hi-icon:after {
   content: "\e00f";
   top: 0;
@@ -1724,7 +1732,7 @@ input {
   border-radius: 80px;
 }
 
-/* line 1543, ../sass/style.scss */
+/* line 1552, ../sass/style.scss */
 .hi-icon:hover {
   background: rgba(255, 255, 255, 0.05);
   -webkit-transform: scale(0.93);
@@ -1734,7 +1742,7 @@ input {
   color: #fff;
 }
 
-/* line 1552, ../sass/style.scss */
+/* line 1561, ../sass/style.scss */
 .hi-icon:hover:after {
   z-index: 400;
   content: "";
@@ -1743,9 +1751,9 @@ input {
   animation: sonarEffect 1.3s ease-out 75ms;
 }
 
-/* line 1561, ../sass/style.scss */
+/* line 1570, ../sass/style.scss */
 .img-like {
-  margin-top: 30px;
+  margin-top: -12px;
 }
 
 @-webkit-keyframes sonarEffect {

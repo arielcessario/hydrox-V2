@@ -66,7 +66,7 @@ textarea:focus {
   vertical-align: middle;
   box-shadow: 0px 0px 5px 0px black;
   font-family: 'Catamaran', sans-serif;
-  background-color: rgb(252, 188, 78);
+  background-color: darkorange;
   font-size: 20px;
 
   -webkit-border-radius: 8px;
@@ -676,7 +676,7 @@ textarea:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  left: calc(50% - 100px);
+  left: calc(47.5% - 100px);
   top: -40px;
   -webkit-transition: top .4s;
   -moz-transition: top .4s;
@@ -687,7 +687,7 @@ textarea:focus {
 }
 
 #social-container:hover {
-  top: 0;
+  top: 5px;
 }
 
 .contenedor-upper {
@@ -1282,6 +1282,7 @@ textarea:focus {
     align-items: center;
     opacity: 0;
     overflow-x: auto;
+    padding-bottom: 150px;
 
     select {
       color: black;
@@ -1300,6 +1301,7 @@ textarea:focus {
     .button-activar {
       height: 20px;
       width: 20px;
+      margin: 5px;
       background-color: red;
       -webkit-border-radius: 20px;
       -moz-border-radius: 20px;
@@ -1388,6 +1390,13 @@ textarea:focus {
     }
   }
 }
+
+
+#clientes-listado{
+  width: 350px;
+  padding: 30px;
+}
+
 
 .administracion-button-bar button,
 #catalogo button,
@@ -1559,7 +1568,7 @@ input {
 }
 
 .img-like{
-  margin-top: 30px;
+    margin-top: -12px;
 
 }
 
