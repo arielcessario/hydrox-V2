@@ -660,7 +660,8 @@ textarea:focus {
   img {
     max-height: 150px;
     @media (max-width: 600px) {
-      max-height: 50px;
+      max-height: 60px;
+      padding: 5px;
 
     }
 
@@ -684,6 +685,10 @@ textarea:focus {
   -o-transition: top .4s;
   transition: top .4s;
   z-index: 1000;
+  @media (max-width: 400px) {
+    margin-top: 90px;
+
+  }
 }
 
 #social-container:hover {
@@ -711,14 +716,15 @@ textarea:focus {
 
 .boton-contacto,
 .boton-ingreso {
+  margin-top: 10px;
   height: 40px;
   width: 40px;
-  margin-left: 10px;
   border-style: none;
 
 }
 
 .boton-contacto {
+  margin-left: 40px;
   opacity: .7;
   background: url("../img/mensaje.svg") 50% 50% no-repeat;
   -webkit-transition: all .1s ease-in-out;
@@ -727,7 +733,7 @@ textarea:focus {
 }
 
 .boton-contacto:hover {
-  opacity: 1px;
+  opacity: 1;
   background: url("../img/mensajeb.svg") 50% 50% no-repeat;
   transform: scale(1.4, 1.4);
   -webkit-transition: all .1s ease-in-out;
@@ -1393,8 +1399,16 @@ textarea:focus {
 
 
 #clientes-listado{
-  width: 350px;
+  max-width: 600px;
   padding: 30px;
+  @media (max-width: 400px) {
+    max-width: 340px;
+
+  }
+  td{
+    width: 98%;
+
+  }
 }
 
 
