@@ -317,10 +317,11 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
 
 
     function recuperarPassword() {
-        if (!AcUtilsService.validateEmail(vm.mail)) {
-            AcUtilsService.validations('mail', 'El mail es incorrecto');
+        if (vm.mail == undefined || !AcUtils.validateEmail(vm.mail) || vm.mail.replace(' ', '').length == 0) {
+            AcUtils.showMessage('error', 'Debe completar el mail');
             return;
         }
+
         LoginService.forgotPassword(vm.mail, function (data) {
             console.log(data);
         });
@@ -380,35 +381,68 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
 
     function sendMail() {
 
+        if (vm.contactoMail.replace(' ', '').length == 0) {
+            AcUtils.showMessage('error', 'Debe completar el mail');
+            return;
+        }
+
+        if (!AcUtils.validateEmail(vm.contactoMail.replace(' ', ''))) {
+            AcUtils.showMessage('error', 'El mail ingresado es incorrecto');
+            return;
+        }
+
+        if (vm.contactoNombre.replace(' ', '').length == 0) {
+            AcUtils.showMessage('error', 'Debe completar el nombre');
+            return;
+        }
+
+        if (vm.contactoMensaje.replace(' ', '').length == 0) {
+            AcUtils.showMessage('error', 'Debe ingresar un mensaje');
+            return;
+        }
+        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: 'arielcessario@gmail.com'}], 'Hydrox', 'Mensaje de: ' + vm.contactoNombre + '\n Teléfono: ' + vm.contactoTelefono + '\n Mensaje: ' + vm.contactoMensaje, 'Mensaje desde la web', function (data) {
+            console.log(data);
+            vm.enviado = true;
+            $timeout(hideMessage, 3000);
+            function hideMessage() {
+                vm.enviado = false;
+            }
+
+            vm.contactoNombre = '';
+            vm.contactoTelefono = '';
+            vm.contactoMail = '';
+            vm.contactoMensaje = '';
+        });
+
         //console.log(vm.mail);
-        return $http.post('./contact.php',
-            {
-                'email': vm.contactoMail,
-                'nombre': vm.contactoNombre,
-                'mensaje': vm.contactoMensaje,
-                'asunto': vm.contactoTelefono
-            })
-            .success(
-                function (data) {
-                    vm.enviado = true;
-                    $timeout(hideMessage, 3000);
-                    function hideMessage() {
-                        vm.enviado = false;
-                    }
-
-                    vm.contactoNombre = '';
-                    vm.contactoTelefono = '';
-                    vm.contactoMail = '';
-                    vm.contactoMensaje = '';
-                })
-            .error(function (data) {
-
-                vm.contactoError = true;
-                $timeout(hideMessage, 3000);
-                function hideMessage() {
-                    vm.contactoError = false;
-                }
-            });
+        //return $http.post('./contact.php',
+        //    {
+        //        'email': vm.contactoMail,
+        //        'nombre': vm.contactoNombre,
+        //        'mensaje': vm.contactoMensaje,
+        //        'asunto': vm.contactoTelefono
+        //    })
+        //    .success(
+        //        function (data) {
+        //            vm.enviado = true;
+        //            $timeout(hideMessage, 3000);
+        //            function hideMessage() {
+        //                vm.enviado = false;
+        //            }
+        //
+        //            vm.contactoNombre = '';
+        //            vm.contactoTelefono = '';
+        //            vm.contactoMail = '';
+        //            vm.contactoMensaje = '';
+        //        })
+        //    .error(function (data) {
+        //
+        //        vm.contactoError = true;
+        //        $timeout(hideMessage, 3000);
+        //        function hideMessage() {
+        //            vm.contactoError = false;
+        //        }
+        //    });
     }
 
 

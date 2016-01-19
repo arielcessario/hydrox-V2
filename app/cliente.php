@@ -149,16 +149,14 @@ function forgotPassword($email)
         $mail->FromName = 'UIGLP';
         $mail->addAddress($email);     // Add a recipient
         $mail->addAddress('arielcessario@gmail.com');     // Add a recipient
-        $mail->addAddress('juan.dilello@gmail.com');               // Name is optional
-        $mail->addAddress('diegoyankelevich@gmail.com');
         $mail->isHTML(true);    // Name is optional
 
-        $mail->Subject = 'Recuperar Contraseña UGLP';
+        $mail->Subject = 'Recuperar Contraseña Hydrox';
         $mail->Body = "<table>
     <tr><td>Te enviamos a continuación la siguiente contraseña.</td></tr>
     <tr><td>Nueva Contraseña:</td></tr>
     <tr><td>" . $new_password . "</td></tr>
-    <tr><td>UIGLP</td></tr>
+    <tr><td>Hydrox</td></tr>
     <tr><td></td></tr>
     <tr><td></td></tr>
 </table>";
