@@ -223,7 +223,7 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
                 console.log(data);
             });
 
-            ContactsService.sendMail('juan@hydrox.com.ar', [{mail: cliente.mail}, {mail: 'arielcessario@gmail.com'}], 'Hydrox', 'Aprobación de usuario', 'Su cuenta ha sido aprobada. Muchas gracias por registrarse.', function (data) {
+            ContactsService.sendMail('juan@hydrox.com.ar', [{mail: cliente.mail}, {mail: 'juan@hydrox.com.ar'}], 'Hydrox', 'Aprobación de usuario', 'Su cuenta ha sido aprobada. Muchas gracias por registrarse.', function (data) {
                 console.log(data);
             });
         })
@@ -277,11 +277,7 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
                             console.log(data);
                         });
 
-                        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: 'arielcessario@gmail.com'}], 'Hydrox', 'Creación de usuario', 'Su cuenta ha sido creada, por favor aguarde a que el administrador la apruebe', function (data) {
-                            console.log(data);
-                        });
-
-                        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: 'juan@hydrox.com.ar'}], 'Hydrox', 'Creación de usuario', 'Su cuenta ha sido creada, por favor aguarde a que el administrador la apruebe', function (data) {
+                        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: 'juan@hydrox.com.ar'}], 'Hydrox', 'Creación de usuario', 'Existe una cuenta a la espera de aprobación.', function (data) {
                             console.log(data);
                         });
 
@@ -400,7 +396,7 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
             AcUtils.showMessage('error', 'Debe ingresar un mensaje');
             return;
         }
-        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: 'arielcessario@gmail.com'}], 'Hydrox', 'Mensaje de: ' + vm.contactoNombre + '\n Teléfono: ' + vm.contactoTelefono + '\n Mensaje: ' + vm.contactoMensaje, 'Mensaje desde la web', function (data) {
+        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: 'juan@hydrox.com.ar'}], 'Hydrox', 'Mensaje de: ' + vm.contactoNombre + '\n Teléfono: ' + vm.contactoTelefono + '\n Mensaje: ' + vm.contactoMensaje, 'Mensaje desde la web', function (data) {
             console.log(data);
             vm.enviado = true;
             $timeout(hideMessage, 3000);
