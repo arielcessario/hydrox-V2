@@ -10,8 +10,7 @@ angular.module('myApp', [
     'angular-storage',
     'angular-jwt',
     'login.login'
-]).
-    config(['$routeProvider', 'jwtInterceptorProvider', '$httpProvider',
+]).config(['$routeProvider', 'jwtInterceptorProvider', '$httpProvider',
         function ($routeProvider, jwtInterceptorProvider, $httpProvider) {
             //$routeProvider.otherwise({redirectTo: '/view1'});
 
@@ -95,6 +94,8 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
     vm.getDescargas = getDescargas;
     vm.adelante = adelante;
     vm.atras = atras;
+    vm.createCupon = createCupon;
+    vm.cupon = {numero: ''};
     vm.usuarios = [];
     vm.logged = undefined;
     vm.admin = 'contacto';
@@ -201,7 +202,15 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
         if (jwtHelper.decodeToken(store.get('jwt')).data.rol == 1) {
             LoginService.getClientes(function (data) {
                 vm.usuarios = data;
-            })
+            });
+
+            getCupones(-1, function (data) {
+                vm.cupones = data;
+            });
+        }else{
+            getCupones(-1, function (data) {
+                vm.cupones = vm.usuario.cliente_id;
+            });
         }
     }
 
@@ -357,21 +366,73 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
                 if (jwtHelper.decodeToken(store.get('jwt')).data.rol == 1) {
                     LoginService.getClientes(function (data) {
                         vm.usuarios = data;
-                    })
+                    });
+                    getCupones(-1, function (data) {
+                        vm.cupones = data;
+                    });
                 } else {
                     vm.usuarios = [];
+                    getCupones(jwtHelper.decodeToken(store.get('jwt')).data.userId, function (data) {
+                        vm.cupones = data;
+                    });
                 }
 
                 vm.logged = jwtHelper.decodeToken(store.get('jwt'));
                 vm.admin = 'admin';
 
                 //getFotos();
+
+
                 getDescargas();
             } else {
                 //LoginState.isLogged = false;
                 AcUtils.showMessage('error', 'Mail o password incorrectos');
             }
         });
+    }
+
+    function createCupon() {
+        if (vm.cupon.numero.replace(' ', '').length == 0) {
+            return;
+        }
+
+
+        return $http.post('cliente.php',
+            {
+                'function': 'createCupon',
+                'cliente_id': jwtHelper.decodeToken(store.get('jwt')).data.userId,
+                'numero': vm.cupon.numero
+            })
+            .success(function (data) {
+                vm.cupon.numero = '';
+
+                if (jwtHelper.decodeToken(store.get('jwt')).data.rol == 1) {
+                    getCupones(-1, function (data) {
+                        vm.cupones = data;
+                    });
+                } else {
+                    getCupones(jwtHelper.decodeToken(store.get('jwt')).data.userId, function (data) {
+                        vm.cupones = data;
+                    });
+                }
+
+            })
+            .error(function (data) {
+
+            });
+    }
+
+    function getCupones(cliente_id, callback) {
+        var url = 'cliente.php?function=getCupones&cliente_id=' + cliente_id + '&numero=-1';
+
+
+        return $http.get(url)
+            .success(function (data) {
+                callback(data);
+            })
+            .error(function (data) {
+                callback(data);
+            })
     }
 
 

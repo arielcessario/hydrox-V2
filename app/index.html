@@ -627,6 +627,31 @@
                         </table>
 
                     </div>
+
+                    <div id="cupones">
+                        <div class="form-titulo2">CUPONES</div>
+                        <div class="form-input">
+                            <span>NÚMERO QUE SE ENCUENTRA EN LA CAJA DEL PRODUCTO</span>
+                            <input type="cupon" id="cupon" ng-model="mainCtrl.cupon.numero">
+                        </div>
+
+                        <div class="nuevo-usuario-button-bar">
+                            <button ng-click="mainCtrl.createCupon();">GUARDAR</button>
+                        </div>
+                        <div id="cupones-listado" ng-if="mainCtrl.admin != 'contacto'">
+
+                            <table>
+                                <tr style="font-weight: bold" class="form-input">
+                                    <td colspan="2"><input type="text" ng-model="filtro" style="min-width: 100%; width: 360px;" placeholder="Filtrar por número o mail"></td>
+                                </tr>
+                                <tr ng-repeat="row in mainCtrl.cupones | filter:filtro">
+                                    <td style="width: 150px !important; max-width: 150px !important;">{{row.numero}}</td>
+                                    <td style="min-width: 50%;">  {{row.mail | date}}</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
                 </div>
 
 
