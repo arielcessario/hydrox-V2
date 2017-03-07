@@ -10,8 +10,7 @@ angular.module('myApp', [
     'angular-storage',
     'angular-jwt',
     'login.login'
-]).
-    config(['$routeProvider', 'jwtInterceptorProvider', '$httpProvider',
+]).config(['$routeProvider', 'jwtInterceptorProvider', '$httpProvider',
         function ($routeProvider, jwtInterceptorProvider, $httpProvider) {
             //$routeProvider.otherwise({redirectTo: '/view1'});
 
@@ -95,6 +94,8 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
     vm.getDescargas = getDescargas;
     vm.adelante = adelante;
     vm.atras = atras;
+    vm.createCupon = createCupon;
+    vm.cupon = {numero: ''};
     vm.usuarios = [];
     vm.logged = undefined;
     vm.admin = 'contacto';
@@ -201,7 +202,15 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
         if (jwtHelper.decodeToken(store.get('jwt')).data.rol == 1) {
             LoginService.getClientes(function (data) {
                 vm.usuarios = data;
-            })
+            });
+
+            getCupones(-1, function (data) {
+                vm.cupones = data;
+            });
+        }else{
+            getCupones(-1, function (data) {
+                vm.cupones = vm.usuario.cliente_id;
+            });
         }
     }
 
@@ -223,7 +232,7 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
                 console.log(data);
             });
 
-            ContactsService.sendMail('juan@hydrox.com.ar', [{mail: cliente.mail}, {mail: 'arielcessario@gmail.com'}], 'Hydrox', 'Aprobación de usuario', 'Su cuenta ha sido aprobada. Muchas gracias por registrarse.', function (data) {
+            ContactsService.sendMail('juan@hydrox.com.ar', [{mail: cliente.mail}, {mail: 'juan@hydrox.com.ar'}], 'Hydrox', 'Aprobación de usuario', 'Su cuenta ha sido aprobada. Muchas gracias por registrarse.', function (data) {
                 console.log(data);
             });
         })
@@ -277,11 +286,7 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
                             console.log(data);
                         });
 
-                        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: 'arielcessario@gmail.com'}], 'Hydrox', 'Creación de usuario', 'Su cuenta ha sido creada, por favor aguarde a que el administrador la apruebe', function (data) {
-                            console.log(data);
-                        });
-
-                        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: 'juan@hydrox.com.ar'}], 'Hydrox', 'Creación de usuario', 'Su cuenta ha sido creada, por favor aguarde a que el administrador la apruebe', function (data) {
+                        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: 'juan@hydrox.com.ar'}], 'Hydrox', 'Creación de usuario', 'Existe una cuenta a la espera de aprobación.', function (data) {
                             console.log(data);
                         });
 
@@ -361,21 +366,73 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
                 if (jwtHelper.decodeToken(store.get('jwt')).data.rol == 1) {
                     LoginService.getClientes(function (data) {
                         vm.usuarios = data;
-                    })
+                    });
+                    getCupones(-1, function (data) {
+                        vm.cupones = data;
+                    });
                 } else {
                     vm.usuarios = [];
+                    getCupones(jwtHelper.decodeToken(store.get('jwt')).data.userId, function (data) {
+                        vm.cupones = data;
+                    });
                 }
 
                 vm.logged = jwtHelper.decodeToken(store.get('jwt'));
                 vm.admin = 'admin';
 
                 //getFotos();
+
+
                 getDescargas();
             } else {
                 //LoginState.isLogged = false;
                 AcUtils.showMessage('error', 'Mail o password incorrectos');
             }
         });
+    }
+
+    function createCupon() {
+        if (vm.cupon.numero.replace(' ', '').length == 0) {
+            return;
+        }
+
+
+        return $http.post('cliente.php',
+            {
+                'function': 'createCupon',
+                'cliente_id': jwtHelper.decodeToken(store.get('jwt')).data.userId,
+                'numero': vm.cupon.numero
+            })
+            .success(function (data) {
+                vm.cupon.numero = '';
+
+                if (jwtHelper.decodeToken(store.get('jwt')).data.rol == 1) {
+                    getCupones(-1, function (data) {
+                        vm.cupones = data;
+                    });
+                } else {
+                    getCupones(jwtHelper.decodeToken(store.get('jwt')).data.userId, function (data) {
+                        vm.cupones = data;
+                    });
+                }
+
+            })
+            .error(function (data) {
+
+            });
+    }
+
+    function getCupones(cliente_id, callback) {
+        var url = 'cliente.php?function=getCupones&cliente_id=' + cliente_id + '&numero=-1';
+
+
+        return $http.get(url)
+            .success(function (data) {
+                callback(data);
+            })
+            .error(function (data) {
+                callback(data);
+            })
     }
 
 
@@ -400,7 +457,7 @@ function MainController($scope, $timeout, $http, store, LoginService, AcUtils, $
             AcUtils.showMessage('error', 'Debe ingresar un mensaje');
             return;
         }
-        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: 'arielcessario@gmail.com'}], 'Hydrox', 'Mensaje de: ' + vm.contactoNombre + '\n Teléfono: ' + vm.contactoTelefono + '\n Mensaje: ' + vm.contactoMensaje, 'Mensaje desde la web', function (data) {
+        ContactsService.sendMail('juan@hydrox.com.ar', [{mail: 'juan@hydrox.com.ar'}], 'Hydrox', 'Mensaje de: ' + vm.contactoNombre + '\n Teléfono: ' + vm.contactoTelefono + '\n Mensaje: ' + vm.contactoMensaje, 'Mensaje desde la web', function (data) {
             console.log(data);
             vm.enviado = true;
             $timeout(hideMessage, 3000);

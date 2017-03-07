@@ -108,6 +108,8 @@ if ($decoded != null) {
         deleteCliente($decoded->cliente_id);
     } else if ($decoded->function == 'forgotPassword') {
         forgotPassword($decoded->email);
+    } else if ($decoded->function == 'createCupon') {
+        createCupon($decoded->cliente_id, $decoded->numero);
     }
 } else {
     $function = $_GET["function"];
@@ -119,6 +121,8 @@ if ($decoded != null) {
         getFotos();
     } elseif ($function == 'getDescargas') {
         getDescargas();
+    } elseif ($function == 'getCupones') {
+        getCupones($_GET["cliente_id"], $_GET["numero"]);
     }
 }
 
@@ -567,4 +571,43 @@ function getHistoricoPedidos($cliente_id)
     }
 
     echo json_encode($pedidos);
+}
+
+
+function createCupon($cliente_id, $numero)
+{
+    $db = new MysqliDb();
+
+    $data = array(
+        'cliente_id' => $cliente_id,
+        'numero' => $numero
+    );
+
+    $result = $db->insert('cupones', $data);
+    if ($result > -1) {
+        echo json_encode(true);
+    } else {
+        echo json_encode(false);
+    }
+}
+
+function getCupones($cliente_id, $numero)
+{
+    $db = new MysqliDb();
+
+
+    $db->join("clientes c", "c.cliente_id=u.cliente_id", "LEFT");
+
+    if ($cliente_id != -1) {
+        $db->where('u.cliente_id', $cliente_id);
+    }
+
+    if ($numero != -1) {
+        $db->where('c.numero', $numero);
+    }
+
+    $result = $db->get('cupones u', null, 'u.numero, u.fecha, c.mail');
+
+    echo json_encode($result);
+
 }
