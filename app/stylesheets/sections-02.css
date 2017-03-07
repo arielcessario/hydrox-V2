@@ -1,0 +1,271 @@
+/* line 5, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 4, ../sass/sections-02.scss */
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #555555;
+}
+
+/* line 21, ../sass/sections-02.scss */
+#main {
+  width: 100vw;
+  min-width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  position: fixed;
+  overflow: hidden;
+}
+
+/* line 40, ../sass/sections-02.scss */
+#seccion-02 {
+  pointer-events: none;
+}
+/* line 46, ../sass/sections-02.scss */
+#seccion-02 #seccion-02-fondo {
+  margin-left: -200px;
+  position: relative;
+  background: transparent url(../img/burbujas.png) 50% 50% no-repeat;
+  height: 100%;
+  width: 100%;
+}
+/* line 65, ../sass/sections-02.scss */
+#seccion-02 #seccion-02-frente {
+  margin-left: 20%;
+  position: relative;
+  height: 100%;
+  width: 20%;
+  margin-top: -35%;
+}
+
+/* line 76, ../sass/sections-02.scss */
+.s-hidden {
+  opacity: 1;
+  position: fixed;
+  right: -4000px;
+  color: white;
+}
+
+/* line 83, ../sass/sections-02.scss */
+.titulo {
+  opacity: 1;
+  right: calc(30% - 135px);
+  top: -200px;
+  height: 50px;
+  width: 270px;
+}
+
+/* line 91, ../sass/sections-02.scss */
+.sub-titulo {
+  opacity: 1;
+  right: calc(30% - 135px);
+  top: 0px;
+  height: 50px;
+  width: 270px;
+}
+
+/* line 99, ../sass/sections-02.scss */
+.detalle {
+  opacity: 1;
+  right: calc(30% - 135px);
+  top: 40px;
+  width: 270px;
+}
+
+/* line 106, ../sass/sections-02.scss */
+.imagen-main {
+  opacity: 1;
+  right: calc(65% - 263px);
+  top: 35%;
+}
+
+/* line 113, ../sass/sections-02.scss */
+.thumbs {
+  opacity: 1;
+  right: calc(56% - 263px);
+  top: 37%;
+  pointer-events: all !important;
+}
+
+/* line 120, ../sass/sections-02.scss */
+#seccion-02-imagen-main.ng-enter {
+  -webkit-animation: titulo-enter 0.4s !important;
+  -moz-animation: titulo-enter 0.4s !important;
+  -ms-animation: titulo-enter 0.4s !important;
+  -o-animation: titulo-enter 0.4s !important;
+  animation: titulo-enter 0.4s !important;
+}
+
+/* line 129, ../sass/sections-02.scss */
+#seccion-02-titulo.ng-enter {
+  -webkit-animation: titulo-enter 0.4s !important;
+  -moz-animation: titulo-enter 0.4s !important;
+  -ms-animation: titulo-enter 0.4s !important;
+  -o-animation: titulo-enter 0.4s !important;
+  animation: titulo-enter 0.4s !important;
+}
+
+/* line 138, ../sass/sections-02.scss */
+#seccion-02-sub-titulo.ng-enter {
+  -moz-animation: titulo-enter 0.5s ease-in;
+  /* Firefox */
+  -webkit-animation: titulo-enter 0.5s ease-in;
+  /* Safari and Chrome */
+  -o-animation: titulo-enter 0.5s ease-in;
+  /* Opera */
+  animation: titulo-enter 0.5s ease-in;
+}
+
+/* line 146, ../sass/sections-02.scss */
+#seccion-02-detalle.ng-enter {
+  -webkit-animation: titulo-enter 0.6s !important;
+  -moz-animation: titulo-enter 0.6s !important;
+  -ms-animation: titulo-enter 0.6s !important;
+  -o-animation: titulo-enter 0.6s !important;
+  animation: titulo-enter 0.6s !important;
+}
+
+/* line 154, ../sass/sections-02.scss */
+#seccion-02-thumbs.ng-enter {
+  -webkit-animation: titulo-enter 0.7s !important;
+  -moz-animation: titulo-enter 0.7s !important;
+  -ms-animation: titulo-enter 0.7s !important;
+  -o-animation: titulo-enter 0.7s !important;
+  animation: titulo-enter 0.7s !important;
+}
+
+@-webkit-keyframes titulo-enter {
+  0% {
+    right: -4000px;
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* line 178, ../sass/sections-02.scss */
+#seccion-02-titulo.ng-leave,
+#seccion-02-sub-titulo.ng-leave,
+#seccion-02-imagen-main.ng-leave {
+  -webkit-animation: titulo-leave 0.4s !important;
+  -moz-animation: titulo-leave 0.4s !important;
+  -ms-animation: titulo-leave 0.4s !important;
+  -o-animation: titulo-leave 0.4s !important;
+  animation: titulo-leave 0.4s !important;
+}
+
+@-webkit-keyframes titulo-leave {
+  0% {
+    opacity: 1;
+    position: fixed;
+  }
+  100% {
+    right: 4000px;
+    opacity: 1;
+    position: fixed;
+  }
+}
+/* line 206, ../sass/sections-02.scss */
+#seccion-02.ng-enter {
+  background-color: violet;
+  -webkit-animation: view-enter 0.8s !important;
+  -moz-animation: view-enter 0.8s !important;
+  -ms-animation: view-enter 0.8s !important;
+  -o-animation: view-enter 0.8s !important;
+  animation: view-enter 0.8s !important;
+}
+
+@-webkit-keyframes view-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* line 242, ../sass/sections-02.scss */
+#seccion-01,
+#seccion-02,
+#seccion-03,
+#seccion-04,
+#seccion-05,
+#seccion-06,
+#seccion-07,
+#seccion-08,
+#seccion-09,
+#seccion-10,
+#seccion-11,
+#seccion-12,
+#seccion-13 {
+  font-size: 200%;
+  vertical-align: middle;
+  line-height: 600px;
+  width: 100%;
+  min-width: 1920px;
+  height: 100%;
+}

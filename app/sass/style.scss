@@ -42,8 +42,8 @@ textarea:focus {
 @include keyframes(bounce) {
   0%, 20%, 50%, 80%, 100% {
     //@include transform(translateY(0));
-    -ms-transform: rotate(0deg) translateY(90); /* IE 9 */
-    -webkit-transform: rotate(0deg) translateY(90); /* Chrome, Safari, Opera */
+    -ms-transform: rotate(90deg) translateY(90); /* IE 9 */
+    -webkit-transform: rotate(90deg) translateY(90); /* Chrome, Safari, Opera */
     transform: rotate(90deg) translateY(0);
   }
   40% {
@@ -56,7 +56,7 @@ textarea:focus {
     //@include transform(translateY(-15px));
     -ms-transform: rotate(90deg) translateY(-15px); /* IE 9 */
     -webkit-transform: rotate(90deg) translateY(-15px); /* Chrome, Safari, Opera */
-    transform: rotate(-90deg) translateY(-15px);
+    transform: rotate(90deg) translateY(-15px);
   }
 
 }
